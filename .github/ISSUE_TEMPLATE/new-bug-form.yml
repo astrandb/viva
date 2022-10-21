@@ -1,5 +1,5 @@
 name: Report an issue
-description: Report an issue with hass_template WiFi for Home Assistant.
+description: Report an issue with viva WiFi for Home Assistant.
 labels: bug
 body:
   - type: markdown
@@ -23,12 +23,12 @@ body:
       value: |
         ## Environment
   - type: input
-    id: version_hass_template
+    id: version_viva
     validations:
       required: true
     attributes:
-      label: Version of hass_template integration having the issue?
-      placeholder: hass_template-
+      label: Version of viva integration having the issue?
+      placeholder: viva-
       description: >
         Can be found in the Configuration panel -> Info.
   - type: input

@@ -1,14 +1,12 @@
 {
-  "name": "hass_template",
+  "name": "viva",
   "domains": [
-    "climate",
     "sensor",
-    "binary_sensor"
   ],
-  "homeassistant": "2021.12.0",
+  "homeassistant": "2022.10.0",
   "iot_class": [
     "Cloud Poll"
   ],
   "zip_release": true,
-  "filename": "hass_template.zip"
+  "filename": "viva.zip"
 }
