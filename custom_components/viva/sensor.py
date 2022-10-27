@@ -14,9 +14,9 @@ from homeassistant.components.sensor import (
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
-    LENGTH_CENTIMETERS,
-    SPEED_METERS_PER_SECOND,
-    TEMP_CELSIUS,
+    UnitOfLength,
+    UnitOfSpeed,
+    UnitOfTemperature,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceEntryType
@@ -50,7 +50,7 @@ LEVEL_SENSOR = ViVaSensorDescription(
     device_class=SensorDeviceClass.DISTANCE,
     name="Vattenstånd",
     icon="mdi:ferry",
-    native_unit_of_measurement=LENGTH_CENTIMETERS,
+    native_unit_of_measurement=UnitOfLength.CENTIMETERS,
     state_class=SensorStateClass.MEASUREMENT,
 )
 
@@ -65,20 +65,18 @@ AVG_WIND_DIRECTION_SENSOR = ViVaSensorDescription(
 AVG_WIND_SENSOR = ViVaSensorDescription(
     key="Medelvind",
     type=SENSOR_TYPE_WIND,
-    device_class=SensorDeviceClass.SPEED,
-    icon="mdi:weather-windy",
+    device_class=SensorDeviceClass.WIND_SPEED,
     name="Medelvind",
-    native_unit_of_measurement=SPEED_METERS_PER_SECOND,
+    native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
     state_class=SensorStateClass.MEASUREMENT,
 )
 
 GUST_WIND_SENSOR = ViVaSensorDescription(
     key="Byvind",
     type=SENSOR_TYPE_WIND,
-    device_class=SensorDeviceClass.SPEED,
-    icon="mdi:weather-windy",
+    device_class=SensorDeviceClass.WIND_SPEED,
     name="Byvind",
-    native_unit_of_measurement=SPEED_METERS_PER_SECOND,
+    native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
     state_class=SensorStateClass.MEASUREMENT,
 )
 
@@ -87,7 +85,7 @@ TEMP_SENSOR = ViVaSensorDescription(
     type=SENSOR_TYPE_WATER_TEMP,
     device_class=SensorDeviceClass.TEMPERATURE,
     name="Vattentemp",
-    native_unit_of_measurement=TEMP_CELSIUS,
+    native_unit_of_measurement=UnitOfTemperature.CELSIUS,
     state_class=SensorStateClass.MEASUREMENT,
 )
 
