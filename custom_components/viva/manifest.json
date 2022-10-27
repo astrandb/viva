@@ -8,7 +8,10 @@
   "zeroconf": [],
   "homekit": {},
   "dependencies": [],
-  "codeowners": ["@astrandb"],
+  "codeowners": [
+    "@astrandb"
+  ],
   "iot_class": "cloud_polling",
+  "integration_type": "service",
   "version": "0.0.1"
 }
