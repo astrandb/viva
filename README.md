@@ -5,9 +5,8 @@
 
 # ViVa Integration for Home Assistant
 
-_Work in progress_
 
-This integration will display weather and sealevel information from Sjöfartsverket in Sweden
+This integration will display weather and sealevel information around the swedish coast from Sjöfartsverket (Swedish Maritime Administration).
 
 ## Installation
 
