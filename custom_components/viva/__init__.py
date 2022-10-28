@@ -33,8 +33,6 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     if not coordinator.last_update_success:
         await coordinator.async_config_entry_first_refresh()
 
-    # print(hass.data[DOMAIN][entry.entry_id]["coordinator"].data)
-
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
     return True
