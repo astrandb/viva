@@ -1,12 +1,7 @@
 {
   "name": "viva",
-  "domains": [
-    "sensor",
-  ],
-  "homeassistant": "2022.10.0",
-  "iot_class": [
-    "Cloud Poll"
-  ],
+  "homeassistant": "2022.11.0b0",
+  "render_readme": true,
   "zip_release": true,
   "filename": "viva.zip"
 }
