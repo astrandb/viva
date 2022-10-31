@@ -158,3 +158,13 @@ class ViVaSensor(CoordinatorEntity, SensorEntity):
             return retval[0]
 
         return retstr
+
+    @property
+    def available(self):
+        """Return the availability of the entity."""
+
+        return (
+            self.coordinator.last_update_success
+            and "Samples" in self.coordinator.data
+            and self.sensor_id in self.coordinator.data["Samples"]
+        )

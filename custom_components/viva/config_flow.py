@@ -29,12 +29,6 @@ STEP_USER_DATA_SCHEMA = (
     ),
 )
 
-stations = [
-    SelectOptionDict(value="123", label="Value 123"),
-    SelectOptionDict(value="176", label="Stockholm (SMHI)"),
-    SelectOptionDict(value="126", label="Value 126"),
-]
-
 
 class ViVaHub:
     """Placeholder class to make tests pass.
@@ -81,8 +75,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     ) -> FlowResult:
         """Handle the initial step."""
         viva_api = ViVaAPI(websession=httpx.AsyncClient())
-        # station_list3 = await API.get_all_stations()
-        station_list4 = [
+        station_list = [
             SelectOptionDict(value=str(st.id), label=st.name)
             for st in await viva_api.get_all_stations()
         ]
@@ -94,7 +87,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 data_schema=vol.Schema(
                     {
                         vol.Required("id"): SelectSelector(
-                            SelectSelectorConfig(options=station_list4)
+                            SelectSelectorConfig(options=station_list)
                         ),
                     }
                 ),
@@ -102,6 +95,9 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             )
 
         errors = {}
+        await self.async_set_unique_id(user_input["id"])
+        self._abort_if_unique_id_configured()
+
         try:
             await validate_input(self.hass, user_input)
             # info = await validate_input(self.hass, user_input)
@@ -114,7 +110,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             errors["base"] = "unknown"
         else:
             title = next(
-                (item for item in station_list4 if item["value"] == user_input["id"]),
+                (item for item in station_list if item["value"] == user_input["id"]),
                 None,
             )["label"]
             return self.async_create_entry(title=title, data=user_input)
@@ -124,7 +120,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             data_schema=vol.Schema(
                 {
                     vol.Required("id"): SelectSelector(
-                        SelectSelectorConfig(options=station_list4)
+                        SelectSelectorConfig(options=station_list)
                     ),
                 }
             ),
