@@ -13,6 +13,6 @@
     "@astrandb"
   ],
   "iot_class": "cloud_polling",
-  "version": "0.0.2",
-  "integration_type": "service"
+  "integration_type": "service",
+  "version": "1.0.0"
 }
