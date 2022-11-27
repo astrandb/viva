@@ -12,7 +12,7 @@ This integration will display weather and sealevel information around the Swedis
 
 ### Preferred download method
 
-- Use HACS, search for viva integration and install it.
+- Use HACS, search for viva integration and download it.
 - Restart Home Assistant
 
 ### Manual download method
