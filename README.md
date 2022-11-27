@@ -1,7 +1,7 @@
 # ViVa Coastal Weather
 
 
-[![viva](https://img.shields.io/github/v/release/astrandb/viva)](https://github.com/astrandb/viva/releases/latest) [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration) ![Validate with hassfest](https://github.com/astrandb/viva/workflows/Validate%20with%20hassfest/badge.svg) ![Maintenance](https://img.shields.io/maintenance/yes/2022.svg) [![viva_downloads](https://img.shields.io/github/downloads/astrandb/viva/total)](https://github.com/astrandb/viva)
+[![viva](https://img.shields.io/github/v/release/astrandb/viva)](https://github.com/astrandb/viva/releases/latest) [![hacs_badge](https://img.shields.io/badge/HACS-Default-blue.svg)](https://github.com/hacs/integration) ![Validate with hassfest](https://github.com/astrandb/viva/workflows/Validate%20with%20hassfest/badge.svg) ![Maintenance](https://img.shields.io/maintenance/yes/2022.svg) [![viva_downloads](https://img.shields.io/github/downloads/astrandb/viva/total)](https://github.com/astrandb/viva)
 
 # ViVa Integration for Home Assistant
 
@@ -12,7 +12,7 @@ This integration will display weather and sealevel information around the Swedis
 
 ### Preferred download method
 
-- Use HACS, add this repo as a custom repository and install viva integration.
+- Use HACS, search for viva integration and install it.
 - Restart Home Assistant
 
 ### Manual download method
