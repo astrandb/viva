@@ -4,7 +4,7 @@
 	"name": "Viva integration",
 	"context": "..",
 	"appPort": [
-		"9123:8123"
+		"9124:8123"
 	],
 	"postCreateCommand": "container install && pip install -Ur requirements-devcontainer.txt",
 	"extensions": [
@@ -23,17 +23,6 @@
 			},
 			"zsh": {
 				"path": "zsh"
-			},
-			"fish": {
-				"path": "fish"
-			},
-			"tmux": {
-				"path": "tmux",
-				"icon": "terminal-tmux"
-			},
-			"pwsh": {
-				"path": "pwsh",
-				"icon": "terminal-powershell"
 			}
 		},
 		"terminal.integrated.defaultProfile.linux": "bash",
@@ -46,5 +35,10 @@
 		"editor.formatOnSave": true,
 		"editor.formatOnType": true,
 		"files.trimTrailingWhitespace": true
-	}
+	},
+	"mounts": [
+		// Custom persistent configuration directory
+		// "source=${localEnv:HOME}/viva_config,target=${containerWorkspaceFolder}/config,type=bind"
+		"source=${localEnv:HOME}/viva_config,target=/config,type=bind"
+	]
 }
