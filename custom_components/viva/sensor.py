@@ -105,7 +105,7 @@ async def async_setup_entry(
     coordinator = await get_coordinator(hass, config_entry)
 
     entities = []
-    for idx, obs in enumerate(coordinator.data["Samples"]):
+    for obs in coordinator.data["Samples"]:
         obs2 = coordinator.data["Samples"][obs]
         if obs2["Type"] == SENSOR_TYPE_LEVEL:
             entities.append(ViVaSensor(coordinator, LEVEL_SENSOR, obs))
