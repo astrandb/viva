@@ -27,6 +27,7 @@ SENSOR_TYPE_WIND = "wind"
 SENSOR_TYPE_WIND_DIRECTION = "wind_direction"
 SENSOR_TYPE_LEVEL = "level"
 SENSOR_TYPE_WATER_TEMP = "watertemp"
+SENSOR_TYPE_SIGHT = "sight"
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -85,6 +86,15 @@ TEMP_SENSOR = ViVaSensorDescription(
     state_class=SensorStateClass.MEASUREMENT,
 )
 
+SIGHT_SENSOR = ViVaSensorDescription(
+    key="Sikt",
+    type=SENSOR_TYPE_SIGHT,
+    device_class=SensorDeviceClass.DISTANCE,
+    icon="mdi:binoculars",
+    name="Sikt",
+    native_unit_of_measurement="m",
+)
+
 
 async def async_setup_entry(
     hass: HomeAssistant,
@@ -95,7 +105,7 @@ async def async_setup_entry(
     coordinator = await get_coordinator(hass, config_entry)
 
     entities = []
-    for idx, obs in enumerate(coordinator.data["Samples"]):
+    for obs in coordinator.data["Samples"]:
         obs2 = coordinator.data["Samples"][obs]
         if obs2["Type"] == SENSOR_TYPE_LEVEL:
             entities.append(ViVaSensor(coordinator, LEVEL_SENSOR, obs))
@@ -106,6 +116,8 @@ async def async_setup_entry(
             entities.append(ViVaSensor(coordinator, GUST_WIND_SENSOR, obs))
         elif obs2["Type"] == SENSOR_TYPE_WATER_TEMP:
             entities.append(ViVaSensor(coordinator, TEMP_SENSOR, obs))
+        elif obs2["Type"] == SENSOR_TYPE_SIGHT:
+            entities.append(ViVaSensor(coordinator, SIGHT_SENSOR, obs))
         else:
             _LOGGER.warning(
                 "Unsupported sensor type %s on station %s",
