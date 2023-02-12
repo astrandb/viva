@@ -81,7 +81,6 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         ]
 
         if user_input is None:
-
             return self.async_show_form(
                 step_id="user",
                 data_schema=vol.Schema(
