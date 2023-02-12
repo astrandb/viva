@@ -1,23 +1,23 @@
 {
-    "config": {
-        "abort": {
-            "already_configured": "Enheten är redan konfigurerad"
+  "config": {
+    "abort": {
+      "already_configured": "Enheten är redan konfigurerad"
+    },
+    "error": {
+      "cannot_connect": "Kunde inte ansluta",
+      "invalid_auth": "Autentisering misslyckades",
+      "unknown": "Oväntat fel"
+    },
+    "step": {
+      "user": {
+        "description": "Välj plats att följa",
+        "data": {
+          "id": "Plats"
         },
-        "error": {
-            "cannot_connect": "Kunde inte ansluta",
-            "invalid_auth": "Autentisering misslyckades",
-            "unknown": "Oväntat fel"
-        },
-        "step": {
-            "user": {
-                "description": "Välj plats att följa",
-                "data": {
-                    "id": "Plats"
-                },
-                "data_description": {
-                    "id": "Välj plats från listan"
-                }
-            }
+        "data_description": {
+          "id": "Välj plats från listan"
         }
+      }
     }
+  }
 }

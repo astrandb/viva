@@ -1,18 +1,18 @@
 {
   "domain": "viva",
   "name": "ViVa Coastal Weather",
-  "config_flow": true,
-  "documentation": "https://github.com/astrandb/viva",
-  "issue_tracker": "https://github.com/astrandb/viva/issues",
-  "requirements": [],
-  "ssdp": [],
-  "zeroconf": [],
-  "homekit": {},
-  "dependencies": [],
   "codeowners": [
     "@astrandb"
   ],
-  "iot_class": "cloud_polling",
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/astrandb/viva",
+  "homekit": {},
   "integration_type": "service",
-  "version": "1.0.1"
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/astrandb/viva/issues",
+  "requirements": [],
+  "ssdp": [],
+  "version": "1.0.1",
+  "zeroconf": []
 }
