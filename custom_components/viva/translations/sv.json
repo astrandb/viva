@@ -19,5 +19,27 @@
         }
       }
     }
+  },
+  "entity": {
+    "sensor": {
+      "sealevel": {
+        "name": "Vattenstånd"
+      },
+      "wind_direction": {
+        "name": "Vindriktning"
+      },
+      "wind_strength": {
+        "name": "Vindstyrka"
+      },
+      "gust_strength": {
+        "name": "Byvind"
+      },
+      "water_temperature": {
+        "name": "Vattentemperatur"
+      },
+      "visibility": {
+        "name": "Sikt"
+      }
+    }
   }
 }

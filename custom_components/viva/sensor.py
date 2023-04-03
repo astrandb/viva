@@ -45,7 +45,7 @@ LEVEL_SENSOR = ViVaSensorDescription(
     key="Vattenstånd",
     type=SENSOR_TYPE_LEVEL,
     device_class=SensorDeviceClass.DISTANCE,
-    name="Vattenstånd",
+    translation_key="sealevel",
     icon="mdi:ferry",
     native_unit_of_measurement=UnitOfLength.CENTIMETERS,
     state_class=SensorStateClass.MEASUREMENT,
@@ -55,15 +55,14 @@ AVG_WIND_DIRECTION_SENSOR = ViVaSensorDescription(
     key="Vindriktning",
     type=SENSOR_TYPE_WIND_DIRECTION,
     icon="mdi:compass-outline",
-    name="Vindriktning",
-    native_unit_of_measurement="",
+    translation_key="wind_direction",
 )
 
 AVG_WIND_SENSOR = ViVaSensorDescription(
     key="Medelvind",
     type=SENSOR_TYPE_WIND,
     device_class=SensorDeviceClass.WIND_SPEED,
-    name="Medelvind",
+    translation_key="wind_strength",
     native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
     state_class=SensorStateClass.MEASUREMENT,
 )
@@ -72,7 +71,7 @@ GUST_WIND_SENSOR = ViVaSensorDescription(
     key="Byvind",
     type=SENSOR_TYPE_WIND,
     device_class=SensorDeviceClass.WIND_SPEED,
-    name="Byvind",
+    translation_key="gust_strength",
     native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
     state_class=SensorStateClass.MEASUREMENT,
 )
@@ -81,7 +80,7 @@ TEMP_SENSOR = ViVaSensorDescription(
     key="Vattentemp",
     type=SENSOR_TYPE_WATER_TEMP,
     device_class=SensorDeviceClass.TEMPERATURE,
-    name="Vattentemp",
+    translation_key="water_temperature",
     native_unit_of_measurement=UnitOfTemperature.CELSIUS,
     state_class=SensorStateClass.MEASUREMENT,
 )

@@ -17,5 +17,27 @@
     "abort": {
       "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
     }
+  },
+  "entity": {
+    "sensor": {
+      "sealevel": {
+        "name": "Sealevel"
+      },
+      "wind_direction": {
+        "name": "Wind direction"
+      },
+      "wind_strength": {
+        "name": "Wind strength"
+      },
+      "gust_strength": {
+        "name": "Gust strength"
+      },
+      "water_temperature": {
+        "name": "Water temperature"
+      },
+      "visibility": {
+        "name": "Visibility"
+      }
+    }
   }
 }
