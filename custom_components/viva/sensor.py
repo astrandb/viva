@@ -64,6 +64,7 @@ AVG_WIND_SENSOR = ViVaSensorDescription(
     device_class=SensorDeviceClass.WIND_SPEED,
     translation_key="wind_strength",
     native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
+    suggested_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
     state_class=SensorStateClass.MEASUREMENT,
 )
 
@@ -73,6 +74,7 @@ GUST_WIND_SENSOR = ViVaSensorDescription(
     device_class=SensorDeviceClass.WIND_SPEED,
     translation_key="gust_strength",
     native_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
+    suggested_unit_of_measurement=UnitOfSpeed.METERS_PER_SECOND,
     state_class=SensorStateClass.MEASUREMENT,
 )
 
