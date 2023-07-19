@@ -1,15 +1,14 @@
 {
-    "name": "astrandb/devcontainer",
+    "name": "astrandb/dev-viva",
     "image": "mcr.microsoft.com/vscode/devcontainers/python:0-3.11-bullseye",
     "postCreateCommand": "scripts/setup",
-    "forwardPorts": [8123],
-    "appPort": ["9130:8123"],
+    "appPort": ["9124:8123"],
     "portsAttributes": {
         "8123": {
             "label": "Home Assistant internal",
             "onAutoForward": "notify"
         },
-        "9130": {
+        "9124": {
             "label": "Home Assistant remote",
             "onAutoForward": "notify"
         }
@@ -41,6 +40,9 @@
                 "editor.formatOnSave": true,
                 "editor.formatOnType": true,
                 "files.trimTrailingWhitespace": true,
+                "[markdown]": {
+                    "files.trimTrailingWhitespace": false
+                },
                 "i18nJsonEditor.forceKeyUPPERCASE": false,
                 "i18nJsonEditor.supportedFolders": ["translations", "i18n"]
             }
