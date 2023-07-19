@@ -10,11 +10,11 @@ if [[ ! -d "${PWD}/config" ]]; then
     hass --config "${PWD}/config" --script ensure_config
 fi
 if ! grep -R "^logger:" config/configuration.yaml >> /dev/null;then
-echo "
+echo -n "
 logger:
-    default: info
-    logs:
-        homeassistant.components.viva: debug
+  default: info
+  logs:
+    homeassistant.components.viva: debug
 " >> config/configuration.yaml
 fi
 

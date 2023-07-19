@@ -11,6 +11,6 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 
 logger:
-    default: info
-    logs:
-        homeassistant.components.viva: debug
+  default: info
+  logs:
+    homeassistant.components.viva: debug
