@@ -18,6 +18,7 @@ categories:
   - title: "Dependencies"
     labels:
       - "dependencies"
+      - "dependency"
   - title: "Maintenance"
     label: "maintenance"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
@@ -41,4 +42,4 @@ autolabeler:
   - label: "translation"
     files:
       - "strings.json"
-      - "translations/*.json"
+      - "*/translations/*.json"
