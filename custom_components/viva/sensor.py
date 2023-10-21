@@ -170,6 +170,9 @@ class ViVaSensor(CoordinatorEntity, SensorEntity):
             retval = retstr.split()
             return retval[0]
 
+        if self.entity_description.type == SENSOR_TYPE_SIGHT:
+            return retstr.replace(">", "")
+
         return retstr
 
     @property
