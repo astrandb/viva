@@ -69,6 +69,15 @@ AVG_WAVE_HEADING_SENSOR = ViVaSensorDescription(
     state_class=SensorStateClass.MEASUREMENT,
 )
 
+WAVE_PERIOD_SENSOR = ViVaSensorDescription(
+    key="Vågperiod",
+    type=SENSOR_TYPE_WAVE,
+    translation_key="wave_period",
+    icon="mdi:waves",
+    native_unit_of_measurement="s",
+    state_class=SensorStateClass.MEASUREMENT,
+)
+
 LEVEL_SENSOR = ViVaSensorDescription(
     key="Vattenstånd",
     type=SENSOR_TYPE_LEVEL,
@@ -147,10 +156,12 @@ async def async_setup_entry(
             entities.append(ViVaSensor(coordinator, TEMP_SENSOR, obs))
         elif obs2["Type"] == SENSOR_TYPE_SIGHT:
             entities.append(ViVaSensor(coordinator, SIGHT_SENSOR, obs))
-        elif obs2["Type"] == SENSOR_TYPE_WAVE:
+        elif obs2["Type"] == SENSOR_TYPE_WAVE and obs2["Name"] == "Våghöjd":
             entities.append(ViVaSensor(coordinator, WAVE_HEIGHT_SENSOR, obs))
             entities.append(ViVaSensor(coordinator, WAVE_HEIGHT_DIRECTION_SENSOR, obs))
             entities.append(ViVaSensor(coordinator, AVG_WAVE_HEADING_SENSOR, obs))
+        elif obs2["Type"] == SENSOR_TYPE_WAVE and obs2["Name"] == "Vågperiod":
+            entities.append(ViVaSensor(coordinator, WAVE_PERIOD_SENSOR, obs))
         else:
             _LOGGER.warning(
                 "Unsupported sensor type %s on station %s",
