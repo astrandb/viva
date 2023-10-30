@@ -30,6 +30,7 @@ SENSOR_TYPE_WATER_TEMP = "watertemp"
 SENSOR_TYPE_SIGHT = "sight"
 SENSOR_TYPE_WAVE = "wave"
 SENSOR_TYPE_WAVE_DIRECTION = "wave_direction"
+SENSOR_TYPE_WAVE_HEADING = "wave_heading"
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -57,6 +58,15 @@ WAVE_HEIGHT_DIRECTION_SENSOR = ViVaSensorDescription(
     type=SENSOR_TYPE_WAVE_DIRECTION,
     icon="mdi:compass-outline",
     translation_key="wave_direction",
+)
+
+AVG_WAVE_HEADING_SENSOR = ViVaSensorDescription(
+    key="Vågriktningskurs",
+    type=SENSOR_TYPE_WAVE_HEADING,
+    icon="mdi:compass-outline",
+    translation_key="wave_heading",
+    native_unit_of_measurement="°",
+    state_class=SensorStateClass.MEASUREMENT,
 )
 
 LEVEL_SENSOR = ViVaSensorDescription(
@@ -140,6 +150,7 @@ async def async_setup_entry(
         elif obs2["Type"] == SENSOR_TYPE_WAVE:
             entities.append(ViVaSensor(coordinator, WAVE_HEIGHT_SENSOR, obs))
             entities.append(ViVaSensor(coordinator, WAVE_HEIGHT_DIRECTION_SENSOR, obs))
+            entities.append(ViVaSensor(coordinator, AVG_WAVE_HEADING_SENSOR, obs))
         else:
             _LOGGER.warning(
                 "Unsupported sensor type %s on station %s",
@@ -198,6 +209,9 @@ class ViVaSensor(CoordinatorEntity, SensorEntity):
         if self.entity_description.type == SENSOR_TYPE_WIND_DIRECTION:
             retval = retstr.split()
             return retval[0]
+
+        if self.entity_description.type == SENSOR_TYPE_WAVE_HEADING:
+            return self.coordinator.data["Samples"][self.sensor_id].get("Heading")
 
         if self.entity_description.type == SENSOR_TYPE_SIGHT:
             return retstr.replace(">", "")
