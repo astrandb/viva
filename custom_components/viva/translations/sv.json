@@ -48,6 +48,9 @@
       },
       "wave_heading": {
         "name": "Vågriktningskurs"
+      },
+      "wave_period": {
+        "name": "Vågperiod"
       }
     }
   }
