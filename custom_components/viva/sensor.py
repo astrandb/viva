@@ -82,6 +82,8 @@ AVG_WIND_HEADING_SENSOR = ViVaSensorDescription(
     type=SENSOR_TYPE_WIND_HEADING,
     icon="mdi:compass-outline",
     translation_key="wind_heading",
+    native_unit_of_measurement="°",
+    state_class=SensorStateClass.MEASUREMENT,
 )
 
 AVG_WIND_SENSOR = ViVaSensorDescription(
