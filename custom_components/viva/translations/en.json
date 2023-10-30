@@ -48,6 +48,9 @@
       },
       "wave_heading": {
         "name": "Wave heading"
+      },
+      "wave_period": {
+        "name": "Wave Period"
       }
     }
   }
