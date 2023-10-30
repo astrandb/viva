@@ -45,6 +45,9 @@
       },
       "wave_direction": {
         "name": "Vågriktning"
+      },
+      "wave_heading": {
+        "name": "Vågriktningskurs"
       }
     }
   }
