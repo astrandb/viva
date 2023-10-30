@@ -45,6 +45,9 @@
       },
       "wave_direction": {
         "name": "Wave direction"
+      },
+      "wave_heading": {
+        "name": "Wave heading"
       }
     }
   }
