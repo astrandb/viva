@@ -42,6 +42,18 @@
       },
       "visibility": {
         "name": "Visibility"
+      },
+      "wave_height": {
+        "name": "Wave height"
+      },
+      "wave_direction": {
+        "name": "Wave direction"
+      },
+      "wave_heading": {
+        "name": "Wave heading"
+      },
+      "wave_period": {
+        "name": "Wave Period"
       }
     }
   }
