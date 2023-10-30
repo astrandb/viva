@@ -61,7 +61,7 @@ WAVE_HEIGHT_DIRECTION_SENSOR = ViVaSensorDescription(
     translation_key="wave_direction",
 )
 
-AVG_WAVE_HEADING_SENSOR = ViVaSensorDescription(
+WAVE_HEIGHT_HEADING_SENSOR = ViVaSensorDescription(
     key="Vågriktningskurs",
     type=SENSOR_TYPE_WAVE_HEADING,
     icon="mdi:compass-outline",
@@ -170,7 +170,7 @@ async def async_setup_entry(
         elif obs2["Type"] == SENSOR_TYPE_WAVE and obs2["Name"] == "Våghöjd":
             entities.append(ViVaSensor(coordinator, WAVE_HEIGHT_SENSOR, obs))
             entities.append(ViVaSensor(coordinator, WAVE_HEIGHT_DIRECTION_SENSOR, obs))
-            entities.append(ViVaSensor(coordinator, AVG_WAVE_HEADING_SENSOR, obs))
+            entities.append(ViVaSensor(coordinator, WAVE_HEIGHT_HEADING_SENSOR, obs))
         elif obs2["Type"] == SENSOR_TYPE_WAVE and obs2["Name"] == "Vågperiod":
             entities.append(ViVaSensor(coordinator, WAVE_PERIOD_SENSOR, obs))
         else:
