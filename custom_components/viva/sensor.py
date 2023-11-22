@@ -64,7 +64,7 @@ WAVE_PERIOD_SENSOR = ViVaSensorDescription(
     type=SENSOR_TYPE_WAVE,
     translation_key="wave_period",
     icon="mdi:waves",
-    native_unit_of_measurement="s",
+    native_unit_of_measurement=UnitOfTime.SECONDS,
     state_class=SensorStateClass.MEASUREMENT,
 )
 
