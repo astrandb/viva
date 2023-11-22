@@ -13,7 +13,7 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import UnitOfLength, UnitOfSpeed, UnitOfTemperature
+from homeassistant.const import UnitOfLength, UnitOfSpeed, UnitOfTemperature, UnitOfTime
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceEntryType
 from homeassistant.helpers.entity import DeviceInfo
@@ -28,6 +28,8 @@ SENSOR_TYPE_WIND_DIRECTION = "wind_direction"
 SENSOR_TYPE_LEVEL = "level"
 SENSOR_TYPE_WATER_TEMP = "watertemp"
 SENSOR_TYPE_SIGHT = "sight"
+SENSOR_TYPE_WAVE = "wave"
+SENSOR_TYPE_WAVE_DIRECTION = "wave_direction"
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -40,6 +42,31 @@ class ViVaSensorDescription(SensorEntityDescription):
     convert: Callable[[Any], Any] | None = None
     decimals: int = 1
 
+WAVE_HEIGHT_SENSOR = ViVaSensorDescription(
+    key="Våghöjd",
+    type=SENSOR_TYPE_WAVE,
+    device_class=SensorDeviceClass.DISTANCE,
+    translation_key="wave_height",
+    icon="mdi:waves",
+    native_unit_of_measurement=UnitOfLength.METERS,
+    state_class=SensorStateClass.MEASUREMENT,
+)
+
+WAVE_HEIGHT_DIRECTION_SENSOR = ViVaSensorDescription(
+    key="Vågriktning",
+    type=SENSOR_TYPE_WAVE_DIRECTION,
+    icon="mdi:compass-outline",
+    translation_key="wave_direction",
+)
+
+WAVE_PERIOD_SENSOR = ViVaSensorDescription(
+    key="Vågperiod",
+    type=SENSOR_TYPE_WAVE,
+    translation_key="wave_period",
+    icon="mdi:waves",
+    native_unit_of_measurement=UnitOfTime.SECONDS,
+    state_class=SensorStateClass.MEASUREMENT,
+)
 
 LEVEL_SENSOR = ViVaSensorDescription(
     key="Vattenstånd",
@@ -119,6 +146,11 @@ async def async_setup_entry(
             entities.append(ViVaSensor(coordinator, TEMP_SENSOR, obs))
         elif obs2["Type"] == SENSOR_TYPE_SIGHT:
             entities.append(ViVaSensor(coordinator, SIGHT_SENSOR, obs))
+        elif obs2["Type"] == SENSOR_TYPE_WAVE and obs2["Name"] == "Våghöjd":
+            entities.append(ViVaSensor(coordinator, WAVE_HEIGHT_SENSOR, obs))
+            entities.append(ViVaSensor(coordinator, WAVE_HEIGHT_DIRECTION_SENSOR, obs))
+        elif obs2["Type"] == SENSOR_TYPE_WAVE and obs2["Name"] == "Vågperiod":
+            entities.append(ViVaSensor(coordinator, WAVE_PERIOD_SENSOR, obs))
         else:
             _LOGGER.warning(
                 "Unsupported sensor type %s on station %s",
@@ -162,10 +194,18 @@ class ViVaSensor(CoordinatorEntity, SensorEntity):
 
         retstr = self.coordinator.data["Samples"][self.sensor_id].get("Value")
 
+        if self.entity_description.type == SENSOR_TYPE_WAVE:
+            retval = retstr.split()
+            return retval[1]
+            
         if self.entity_description.type == SENSOR_TYPE_WIND:
             retval = retstr.split()
             return retval[1]
-
+            
+        if self.entity_description.type == SENSOR_TYPE_WAVE_DIRECTION:
+            retval = retstr.split()
+            return retval[0]
+           
         if self.entity_description.type == SENSOR_TYPE_WIND_DIRECTION:
             retval = retstr.split()
             return retval[0]

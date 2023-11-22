@@ -39,6 +39,15 @@
       },
       "visibility": {
         "name": "Visibility"
+      },
+      "wave_period": {
+        "name": "Wave period"
+            },
+      "wave_height": {
+        "name": "Wave height"
+      },
+      "wave_direction": {
+        "name": "Wave direction"
       }
     }
   }
