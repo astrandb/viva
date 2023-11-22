@@ -39,6 +39,15 @@
       },
       "visibility": {
         "name": "Sikt"
+      },
+      "wave_period": {
+        "name": "Vågperiod"
+      },
+      "wave_height": {
+        "name": "Våghöjd"
+      },
+      "wave_direction": {
+        "name": "Vågriktning"
       }
     }
   }
