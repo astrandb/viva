@@ -42,6 +42,7 @@ class ViVaSensorDescription(SensorEntityDescription):
     convert: Callable[[Any], Any] | None = None
     decimals: int = 1
 
+
 WAVE_HEIGHT_SENSOR = ViVaSensorDescription(
     key="Våghöjd",
     type=SENSOR_TYPE_WAVE,
@@ -197,15 +198,15 @@ class ViVaSensor(CoordinatorEntity, SensorEntity):
         if self.entity_description.type == SENSOR_TYPE_WAVE:
             retval = retstr.split()
             return retval[1]
-            
+
         if self.entity_description.type == SENSOR_TYPE_WIND:
             retval = retstr.split()
             return retval[1]
-            
+
         if self.entity_description.type == SENSOR_TYPE_WAVE_DIRECTION:
             retval = retstr.split()
             return retval[0]
-           
+
         if self.entity_description.type == SENSOR_TYPE_WIND_DIRECTION:
             retval = retstr.split()
             return retval[0]
