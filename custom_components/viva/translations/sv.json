@@ -48,6 +48,9 @@
       },
       "wave_direction": {
         "name": "Vågriktning"
+      },
+      "wave_bearing": {
+        "name": "Vågriktning"
       }
     }
   }
