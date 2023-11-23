@@ -28,6 +28,9 @@
       "wind_direction": {
         "name": "Vindriktning"
       },
+      "wind_bearing": {
+        "name": "Vindriktning"
+      },
       "wind_strength": {
         "name": "Vindstyrka"
       },
