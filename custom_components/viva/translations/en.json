@@ -28,6 +28,9 @@
       "wind_direction": {
         "name": "Wind direction"
       },
+      "wind_bearing": {
+        "name": "Wind bearing"
+      },
       "wind_strength": {
         "name": "Wind strength"
       },
