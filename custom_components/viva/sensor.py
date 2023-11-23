@@ -13,7 +13,7 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import UnitOfLength, UnitOfSpeed, UnitOfTemperature, UnitOfTime
+from homeassistant.const import UnitOfLength, UnitOfSpeed, UnitOfTemperature, UnitOfTime, DEGREE
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceEntryType
 from homeassistant.helpers.entity import DeviceInfo
@@ -25,6 +25,7 @@ from .const import DOMAIN
 
 SENSOR_TYPE_WIND = "wind"
 SENSOR_TYPE_WIND_DIRECTION = "wind_direction"
+SENSOR_TYPE_WIND_BEARING = "wind_bearing"
 SENSOR_TYPE_LEVEL = "level"
 SENSOR_TYPE_WATER_TEMP = "watertemp"
 SENSOR_TYPE_SIGHT = "sight"
@@ -86,6 +87,16 @@ AVG_WIND_DIRECTION_SENSOR = ViVaSensorDescription(
     translation_key="wind_direction",
 )
 
+AVG_WIND_BEARING_SENSOR = ViVaSensorDescription(
+    key="Vindriktning_int",
+    type=SENSOR_TYPE_WIND_BEARING,
+    native_unit_of_measurement=DEGREE,
+    state_class=SensorStateClass.MEASUREMENT,
+    icon="mdi:compass-outline",
+    translation_key="wind_bearing",
+    entity_registry_enabled_default=False,
+ )
+
 AVG_WIND_SENSOR = ViVaSensorDescription(
     key="Medelvind",
     type=SENSOR_TYPE_WIND,
@@ -141,6 +152,7 @@ async def async_setup_entry(
         elif obs2["Type"] == SENSOR_TYPE_WIND and obs2["Name"] == "Medelvind":
             entities.append(ViVaSensor(coordinator, AVG_WIND_SENSOR, obs))
             entities.append(ViVaSensor(coordinator, AVG_WIND_DIRECTION_SENSOR, obs))
+            entities.append(ViVaSensor(coordinator, AVG_WIND_BEARING_SENSOR, obs))
         elif obs2["Type"] == SENSOR_TYPE_WIND and obs2["Name"] == "Byvind":
             entities.append(ViVaSensor(coordinator, GUST_WIND_SENSOR, obs))
         elif obs2["Type"] == SENSOR_TYPE_WATER_TEMP:
@@ -210,6 +222,9 @@ class ViVaSensor(CoordinatorEntity, SensorEntity):
         if self.entity_description.type == SENSOR_TYPE_WIND_DIRECTION:
             retval = retstr.split()
             return retval[0]
+
+        if self.entity_description.type == SENSOR_TYPE_WIND_BEARING:
+            return self.coordinator.data["Samples"][self.sensor_id].get("Heading")
 
         if self.entity_description.type == SENSOR_TYPE_SIGHT:
             return retstr.replace(">", "")
