@@ -13,7 +13,7 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import UnitOfLength, UnitOfSpeed, UnitOfTemperature, UnitOfTime
+from homeassistant.const import UnitOfLength, UnitOfSpeed, UnitOfTemperature, UnitOfTime, DEGREE
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceEntryType
 from homeassistant.helpers.entity import DeviceInfo
@@ -30,6 +30,7 @@ SENSOR_TYPE_WATER_TEMP = "watertemp"
 SENSOR_TYPE_SIGHT = "sight"
 SENSOR_TYPE_WAVE = "wave"
 SENSOR_TYPE_WAVE_DIRECTION = "wave_direction"
+SENSOR_TYPE_WAVE_BEARING = "wave_bearing"
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -58,6 +59,15 @@ WAVE_HEIGHT_DIRECTION_SENSOR = ViVaSensorDescription(
     type=SENSOR_TYPE_WAVE_DIRECTION,
     icon="mdi:compass-outline",
     translation_key="wave_direction",
+)
+
+WAVE_BEARING_SENSOR = ViVaSensorDescription(
+    key="Vågriktning_int",
+    type=SENSOR_TYPE_WAVE_BEARING,
+    native_unit_of_measurement=DEGREE,
+    state_class=SensorStateClass.MEASUREMENT,
+    icon="mdi:compass-outline",
+    translation_key="wave_bearing",
 )
 
 WAVE_PERIOD_SENSOR = ViVaSensorDescription(
@@ -150,6 +160,7 @@ async def async_setup_entry(
         elif obs2["Type"] == SENSOR_TYPE_WAVE and obs2["Name"] == "Våghöjd":
             entities.append(ViVaSensor(coordinator, WAVE_HEIGHT_SENSOR, obs))
             entities.append(ViVaSensor(coordinator, WAVE_HEIGHT_DIRECTION_SENSOR, obs))
+            entities.append(ViVaSensor(coordinator, WAVE_BEARING_SENSOR, obs))
         elif obs2["Type"] == SENSOR_TYPE_WAVE and obs2["Name"] == "Vågperiod":
             entities.append(ViVaSensor(coordinator, WAVE_PERIOD_SENSOR, obs))
         else:
@@ -206,6 +217,9 @@ class ViVaSensor(CoordinatorEntity, SensorEntity):
         if self.entity_description.type == SENSOR_TYPE_WAVE_DIRECTION:
             retval = retstr.split()
             return retval[0]
+
+        if self.entity_description.type == SENSOR_TYPE_WAVE_BEARING:
+            return self.coordinator.data["Samples"][self.sensor_id].get("Heading")
 
         if self.entity_description.type == SENSOR_TYPE_WIND_DIRECTION:
             retval = retstr.split()
