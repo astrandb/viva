@@ -225,6 +225,9 @@ class ViVaSensor(CoordinatorEntity, SensorEntity):
 
         retstr = self.coordinator.data["Samples"][self.sensor_id].get("Value")
 
+        if retstr == "-":
+            return None
+
         if self.entity_description.type == SENSOR_TYPE_WAVE:
             retval = retstr.split()
             return retval[1]
