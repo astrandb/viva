@@ -48,6 +48,9 @@
       },
       "wave_direction": {
         "name": "Wave direction"
+      },
+      "wave_bearing": {
+        "name": "Wave bearing"
       }
     }
   }
