@@ -34,6 +34,7 @@ SENSOR_TYPE_WIND_DIRECTION = "wind_direction"
 SENSOR_TYPE_WIND_BEARING = "wind_bearing"
 SENSOR_TYPE_LEVEL = "level"
 SENSOR_TYPE_WATER_TEMP = "watertemp"
+SENSOR_TYPE_AIR_TEMP = "airtemp"
 SENSOR_TYPE_SIGHT = "sight"
 SENSOR_TYPE_WAVE = "wave"
 SENSOR_TYPE_WAVE_DIRECTION = "wave_direction"
@@ -143,6 +144,14 @@ TEMP_SENSOR = ViVaSensorDescription(
     state_class=SensorStateClass.MEASUREMENT,
 )
 
+AIR_TEMP_SENSOR = ViVaSensorDescription(
+    key="temperatur",
+    type=SENSOR_TYPE_AIR_TEMP,
+    device_class=SensorDeviceClass.TEMPERATURE,
+    native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+    state_class=SensorStateClass.MEASUREMENT,
+)
+
 SIGHT_SENSOR = ViVaSensorDescription(
     key="Sikt",
     type=SENSOR_TYPE_SIGHT,
@@ -174,6 +183,8 @@ async def async_setup_entry(
             entities.append(ViVaSensor(coordinator, GUST_WIND_SENSOR, obs))
         elif obs2["Type"] == SENSOR_TYPE_WATER_TEMP:
             entities.append(ViVaSensor(coordinator, TEMP_SENSOR, obs))
+        elif obs2["Type"] == SENSOR_TYPE_AIR_TEMP:
+            entities.append(ViVaSensor(coordinator, AIR_TEMP_SENSOR, obs))
         elif obs2["Type"] == SENSOR_TYPE_SIGHT:
             entities.append(ViVaSensor(coordinator, SIGHT_SENSOR, obs))
         elif obs2["Type"] == SENSOR_TYPE_WAVE and obs2["Name"] == "Våghöjd":
