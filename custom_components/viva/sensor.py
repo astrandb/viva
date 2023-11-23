@@ -13,7 +13,13 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import UnitOfLength, UnitOfSpeed, UnitOfTemperature, UnitOfTime, DEGREE
+from homeassistant.const import (
+    DEGREE,
+    UnitOfLength,
+    UnitOfSpeed,
+    UnitOfTemperature,
+    UnitOfTime,
+)
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.device_registry import DeviceEntryType
 from homeassistant.helpers.entity import DeviceInfo
@@ -69,6 +75,7 @@ WAVE_BEARING_SENSOR = ViVaSensorDescription(
     state_class=SensorStateClass.MEASUREMENT,
     icon="mdi:compass-outline",
     translation_key="wave_bearing",
+    entity_registry_enabled_default=False,
 )
 
 WAVE_PERIOD_SENSOR = ViVaSensorDescription(
@@ -105,7 +112,7 @@ AVG_WIND_BEARING_SENSOR = ViVaSensorDescription(
     icon="mdi:compass-outline",
     translation_key="wind_bearing",
     entity_registry_enabled_default=False,
- )
+)
 
 AVG_WIND_SENSOR = ViVaSensorDescription(
     key="Medelvind",
