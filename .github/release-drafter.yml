@@ -7,27 +7,48 @@ categories:
     labels:
       - "feature"
       - "enhancement"
-  - title: "Bug Fixes"
+  - title: "Breaking changes"
+    labels:
+      - "breaking"
+  - title: "Bug fixes"
     labels:
       - "fix"
       - "bugfix"
       - "bug"
   - title: "Translation"
+    collapse-after: 2
     labels:
       - "translation"
   - title: "Dependencies"
+    collapse-after: 2
     labels:
       - "dependencies"
       - "dependency"
   - title: "Maintenance"
     label: "maintenance"
+  - title: "Code quality and optimizations"
+    label: "code quality"
+  - title: "Development tools"
+    labels:
+      - "development tools"
+      - "dev-tools"
+
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 
 template: |
-  [![Downloads for this release](https://img.shields.io/github/downloads-pre/astrandb/viva/v$RESOLVED_VERSION/total.svg)](https://github.com/astrandb/viva/releases/v$RESOLVED_VERSION)
+  [![Downloads for this release](https://img.shields.io/github/downloads-pre/$OWNER/$REPOSITORY/v$RESOLVED_VERSION/total.svg)](https://github.com/$OWNER/$REPOSITORY/releases/v$RESOLVED_VERSION)
 
-  ## Changes
+  <!--
+  ### Checklist for release
+  - Download translations PR from Lokalize
+  - Run ruff linter
+  - Run make bump - select proper variank in Makefile
+  - Review the draft below
+  - Remove this checklist
+  -->
+
+  ## Notable Changes
 
   $CHANGES
 
@@ -36,10 +57,22 @@ autolabeler:
     files:
       - "*.md"
       - ".github/*"
+      - ".ruff.toml"
+      - ".pre-commit-config.yaml"
   - label: "bugfix"
     title:
       - "/fix/i"
+  - label: "code quality"
+    title:
+      - "lint"
   - label: "translation"
+    title:
+      - "Lokalise:"
     files:
-      - "strings.json"
-      - "*/translations/*.json"
+      - "**/translations/*.json"
+  - label: "development tools"
+    files:
+      - ".devcontainer/*"
+      - ".devcontainer.json"
+      - "Makefile"
+      - "setup.cfg"
