@@ -1,4 +1,5 @@
 """Platform for sensor integration."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -43,7 +44,7 @@ SENSOR_TYPE_WAVE_BEARING = "wave_bearing"
 _LOGGER = logging.getLogger(__name__)
 
 
-@dataclass
+@dataclass(kw_only=True, frozen=True)
 class ViVaSensorDescription(SensorEntityDescription):
     """Class describing ViVa sensor entities."""
 
