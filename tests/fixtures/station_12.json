@@ -1,0 +1,69 @@
+{
+    "GetSingleStationResult": {
+        "ID": 12,
+        "Name": "Forsmark",
+        "Samples": [
+            {
+                "Name": "Vattenstånd",
+                "Value": "-30",
+                "Heading": 0,
+                "Unit": "cm",
+                "Type": "level",
+                "Trend": "",
+                "Msg": "",
+                "Calm": 0,
+                "Updated": "2024-03-11 17:30:00",
+                "StationID": 12,
+                "Quality": "Ok",
+                "WaterLevelReference": "MVY",
+                "WaterLevelOffset": 4.7
+            },
+            {
+                "Name": "Byvind",
+                "Value": "O 5.2",
+                "Heading": 90,
+                "Unit": "m/s",
+                "Type": "wind",
+                "Trend": "",
+                "Msg": "",
+                "Calm": 0,
+                "Updated": "2024-03-11 17:32:24",
+                "StationID": 12,
+                "Quality": "Ok",
+                "WaterLevelReference": null,
+                "WaterLevelOffset": null
+            },
+            {
+                "Name": "Medelvind",
+                "Value": "O 4.7",
+                "Heading": 90,
+                "Unit": "m/s",
+                "Type": "wind",
+                "Trend": "",
+                "Msg": "",
+                "Calm": 0,
+                "Updated": "2024-03-11 17:32:24",
+                "StationID": 12,
+                "Quality": "Ok",
+                "WaterLevelReference": null,
+                "WaterLevelOffset": null
+            },
+            {
+                "Name": "Vattentemp",
+                "Value": "2.4",
+                "Heading": 0,
+                "Unit": "°C",
+                "Type": "watertemp",
+                "Trend": "",
+                "Msg": "",
+                "Calm": 0,
+                "Updated": "2024-03-11 17:30:00",
+                "StationID": 12,
+                "Quality": "Ok",
+                "WaterLevelReference": null,
+                "WaterLevelOffset": null
+            }
+        ],
+        "Felmeddelande": null
+    }
+}
