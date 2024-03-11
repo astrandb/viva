@@ -1,4 +1,4 @@
 """Constants for the ViVa Weather integration."""
 
 DOMAIN = "viva"
-VERSION = "1.0.5"
+VERSION = "2024.3.0"
