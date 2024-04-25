@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+import asyncio
 from datetime import timedelta
 import logging
 
 from aiohttp import ClientResponseError
-import async_timeout
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
@@ -59,9 +59,8 @@ async def get_coordinator(
     async def async_fetch():
         api = hass.data[DOMAIN][entry.entry_id]["api"]
         try:
-            async with async_timeout.timeout(10):
-                observation = await api.get_station(entry.data["id"])
-                return observation
+            async with asyncio.timeout(10):
+                return await api.get_station(entry.data["id"])
         except ClientResponseError as exc:
             _LOGGER.warning("API fetch failed. Status: %s, - %s", exc.code, exc.message)
             raise UpdateFailed(exc) from exc
