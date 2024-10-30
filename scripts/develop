@@ -15,6 +15,7 @@ logger:
   default: info
   logs:
     homeassistant.components.viva: debug
+isal:
 " >> config/configuration.yaml
 fi
 if ! grep -R "debugpy:" config/configuration.yaml >> /dev/null;then

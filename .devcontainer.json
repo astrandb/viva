@@ -2,7 +2,9 @@
     "name": "astrandb/dev-viva",
     "image": "mcr.microsoft.com/devcontainers/python:1-3.12",
     "postCreateCommand": "scripts/setup",
-    "appPort": ["9124:8123"],
+    "appPort": [
+        "9124:8123"
+    ],
     "portsAttributes": {
         "8123": {
             "label": "Home Assistant internal",
@@ -41,7 +43,11 @@
                     "files.trimTrailingWhitespace": false
                 },
                 "i18nJsonEditor.forceKeyUPPERCASE": false,
-                "i18nJsonEditor.supportedFolders": ["translations", "i18n"]
+                "i18nJsonEditor.supportedFolders": [
+                    "translations",
+                    "i18n"
+                ],
+                "terminal.integrated.defaultProfile.linux": "zsh"
             }
         }
     },
