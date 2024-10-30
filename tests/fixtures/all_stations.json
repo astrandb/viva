@@ -1,0 +1,937 @@
+{
+    "GetStationsResult": {
+        "Stations": [
+            {
+                "ID": 169,
+                "Name": "Agnesberg (GBG Stad)",
+                "Lat": 57.789774,
+                "Lon": 12.010189
+            },
+            {
+                "ID": 21,
+                "Name": "Ale",
+                "Lat": 58.3807,
+                "Lon": 12.3105
+            },
+            {
+                "ID": 15,
+                "Name": "Arkö",
+                "Lat": 58.483107,
+                "Lon": 16.96362
+            },
+            {
+                "ID": 17,
+                "Name": "Atle",
+                "Lat": 63.2524,
+                "Lon": 19.3314
+            },
+            {
+                "ID": 25,
+                "Name": "Barsebäck",
+                "Lat": 55.74588,
+                "Lon": 12.9168
+            },
+            {
+                "ID": 141,
+                "Name": "Blockhusudden (SH)",
+                "Lat": 59.32078,
+                "Lon": 18.15478
+            },
+            {
+                "ID": 27,
+                "Name": "Brandalsund",
+                "Lat": 59.0998,
+                "Lon": 17.67833
+            },
+            {
+                "ID": 30,
+                "Name": "Brinkebergskulle Nedre",
+                "Lat": 58.34005,
+                "Lon": 12.351683
+            },
+            {
+                "ID": 31,
+                "Name": "Brinkebergskulle Övre",
+                "Lat": 58.34102,
+                "Lon": 12.35092
+            },
+            {
+                "ID": 32,
+                "Name": "Brofjorden",
+                "Lat": 58.336,
+                "Lon": 11.4046
+            },
+            {
+                "ID": 135,
+                "Name": "Brofjordens Angöring",
+                "Lat": 58.2506,
+                "Lon": 11.2228
+            },
+            {
+                "ID": 33,
+                "Name": "Bönan",
+                "Lat": 60.7315,
+                "Lon": 17.325833
+            },
+            {
+                "ID": 5,
+                "Name": "Dalbobron",
+                "Lat": 58.382367,
+                "Lon": 12.310783
+            },
+            {
+                "ID": 34,
+                "Name": "E4 Bron Södertälje",
+                "Lat": 59.184833,
+                "Lon": 17.642833
+            },
+            {
+                "ID": 35,
+                "Name": "Eggegrund",
+                "Lat": 60.728167,
+                "Lon": 17.557833
+            },
+            {
+                "ID": 168,
+                "Name": "Eriksberg (GBG Stad)",
+                "Lat": 57.696567,
+                "Lon": 11.908833
+            },
+            {
+                "ID": 36,
+                "Name": "Falkenberg Vatten",
+                "Lat": 56.892,
+                "Lon": 12.4895
+            },
+            {
+                "ID": 119,
+                "Name": "Falkenberg Vind",
+                "Lat": 56.88462,
+                "Lon": 12.468391
+            },
+            {
+                "ID": 11,
+                "Name": "Finngrundet (SMHI)",
+                "Lat": 60.899,
+                "Lon": 18.6092
+            },
+            {
+                "ID": 91,
+                "Name": "Flinten 16",
+                "Lat": 55.56098,
+                "Lon": 12.809541
+            },
+            {
+                "ID": 86,
+                "Name": "Flinten 7",
+                "Lat": 55.589379,
+                "Lon": 12.844475
+            },
+            {
+                "ID": 111,
+                "Name": "Flinten SW",
+                "Lat": 55.518195,
+                "Lon": 12.744768
+            },
+            {
+                "ID": 186,
+                "Name": "Fogden",
+                "Lat": 59.031217,
+                "Lon": 12.73835
+            },
+            {
+                "ID": 12,
+                "Name": "Forsmark",
+                "Lat": 60.408611,
+                "Lon": 18.210833
+            },
+            {
+                "ID": 22,
+                "Name": "Frej",
+                "Lat": 65.4277,
+                "Lon": 22.411
+            },
+            {
+                "ID": 140,
+                "Name": "Frihamnen (SH)",
+                "Lat": 59.3463,
+                "Lon": 18.12708
+            },
+            {
+                "ID": 39,
+                "Name": "Furusund",
+                "Lat": 59.663757,
+                "Lon": 18.931997
+            },
+            {
+                "ID": 158,
+                "Name": "Furuögrund (SMHI)",
+                "Lat": 64.915833,
+                "Lon": 21.230555
+            },
+            {
+                "ID": 196,
+                "Name": "Gräsrännan",
+                "Lat": 55.861634,
+                "Lon": 12.794781
+            },
+            {
+                "ID": 153,
+                "Name": "Gubben",
+                "Lat": 62.349932,
+                "Lon": 17.578059
+            },
+            {
+                "ID": 40,
+                "Name": "Gåsören",
+                "Lat": 64.6633,
+                "Lon": 21.3167
+            },
+            {
+                "ID": 185,
+                "Name": "Gävle hamn (Gävle Hamn AB)",
+                "Lat": 60.6967,
+                "Lon": 17.2314
+            },
+            {
+                "ID": 41,
+                "Name": "Göta",
+                "Lat": 58.0983,
+                "Lon": 12.1506
+            },
+            {
+                "ID": 43,
+                "Name": "Halmstad Vatten",
+                "Lat": 56.651267,
+                "Lon": 12.844659
+            },
+            {
+                "ID": 179,
+                "Name": "Halmstad Vind",
+                "Lat": 56.651137,
+                "Lon": 12.840496
+            },
+            {
+                "ID": 113,
+                "Name": "Hamneskär",
+                "Lat": 57.896333,
+                "Lon": 11.467167
+            },
+            {
+                "ID": 44,
+                "Name": "Hargs Hamn",
+                "Lat": 60.17,
+                "Lon": 18.482
+            },
+            {
+                "ID": 45,
+                "Name": "Helsingborg",
+                "Lat": 56.041167,
+                "Lon": 12.6845
+            },
+            {
+                "ID": 192,
+                "Name": "Helsingborg Nedre",
+                "Lat": 56.0025,
+                "Lon": 12.69833
+            },
+            {
+                "ID": 167,
+                "Name": "Helsingborg Öresund",
+                "Lat": 56.019992,
+                "Lon": 12.687072
+            },
+            {
+                "ID": 193,
+                "Name": "Hisingsbron",
+                "Lat": 57.71491,
+                "Lon": 11.968741
+            },
+            {
+                "ID": 56,
+                "Name": "Hjulstabron",
+                "Lat": 59.533067,
+                "Lon": 17.008166
+            },
+            {
+                "ID": 137,
+                "Name": "Hoburg (SMHI)",
+                "Lat": 56.920945,
+                "Lon": 18.150568
+            },
+            {
+                "ID": 134,
+                "Name": "Holmsund",
+                "Lat": 63.695429,
+                "Lon": 20.347527
+            },
+            {
+                "ID": 174,
+                "Name": "Husum",
+                "Lat": 63.318495,
+                "Lon": 19.156173
+            },
+            {
+                "ID": 150,
+                "Name": "Huvudskär havsboj (SMHI)",
+                "Lat": 58.9359,
+                "Lon": 19.1593
+            },
+            {
+                "ID": 4,
+                "Name": "Hävringe",
+                "Lat": 58.603779,
+                "Lon": 17.315855
+            },
+            {
+                "ID": 126,
+                "Name": "Jordfallsbron",
+                "Lat": 57.8555,
+                "Lon": 12.0091
+            },
+            {
+                "ID": 58,
+                "Name": "Juten",
+                "Lat": 58.63418,
+                "Lon": 16.324758
+            },
+            {
+                "ID": 59,
+                "Name": "Kalix-Karlsborg",
+                "Lat": 65.788833,
+                "Lon": 23.303333
+            },
+            {
+                "ID": 161,
+                "Name": "Kalix-Storön (SMHI)",
+                "Lat": 65.696944,
+                "Lon": 23.096111
+            },
+            {
+                "ID": 60,
+                "Name": "Kalmar",
+                "Lat": 56.671283,
+                "Lon": 16.3888
+            },
+            {
+                "ID": 104,
+                "Name": "Kapellskär (SH)",
+                "Lat": 59.72443,
+                "Lon": 19.06576
+            },
+            {
+                "ID": 99,
+                "Name": "Karet (GBG Hamn)",
+                "Lat": 57.68775,
+                "Lon": 11.869629
+            },
+            {
+                "ID": 61,
+                "Name": "Karlshamn",
+                "Lat": 56.154167,
+                "Lon": 14.821167
+            },
+            {
+                "ID": 147,
+                "Name": "Klagshamn (SMHI)",
+                "Lat": 55.522348,
+                "Lon": 12.893668
+            },
+            {
+                "ID": 7,
+                "Name": "Knolls Grund (SMHI)",
+                "Lat": 57.5156,
+                "Lon": 17.6156
+            },
+            {
+                "ID": 183,
+                "Name": "Krossholmen (SMHI)",
+                "Lat": 57.69129,
+                "Lon": 11.77117
+            },
+            {
+                "ID": 170,
+                "Name": "Kungsholmsfort (SMHI)",
+                "Lat": 56.105277,
+                "Lon": 15.589444
+            },
+            {
+                "ID": 155,
+                "Name": "Kungsvik (SMHI)",
+                "Lat": 58.996666,
+                "Lon": 11.127222
+            },
+            {
+                "ID": 125,
+                "Name": "Kvicksund",
+                "Lat": 59.452655,
+                "Lon": 16.32955
+            },
+            {
+                "ID": 116,
+                "Name": "Kälsholmen",
+                "Lat": 60.16039,
+                "Lon": 18.53422
+            },
+            {
+                "ID": 53,
+                "Name": "Köping",
+                "Lat": 59.494,
+                "Lon": 16.045166
+            },
+            {
+                "ID": 184,
+                "Name": "Köpmanholmen Hamn",
+                "Lat": 63.172349,
+                "Lon": 18.58803
+            },
+            {
+                "ID": 62,
+                "Name": "Lagnögrund",
+                "Lat": 59.35858,
+                "Lon": 18.4151
+            },
+            {
+                "ID": 2,
+                "Name": "Landsort",
+                "Lat": 58.7429,
+                "Lon": 17.8684
+            },
+            {
+                "ID": 165,
+                "Name": "Landsort Norra (SMHI)",
+                "Lat": 58.768888,
+                "Lon": 17.858888
+            },
+            {
+                "ID": 63,
+                "Name": "Larsgrund",
+                "Lat": 65.468833,
+                "Lon": 22.464167
+            },
+            {
+                "ID": 108,
+                "Name": "Lilla Edet Flöde",
+                "Lat": 58.13564,
+                "Lon": 12.11973
+            },
+            {
+                "ID": 64,
+                "Name": "Lilla Edet Nedre",
+                "Lat": 58.13618,
+                "Lon": 12.11751
+            },
+            {
+                "ID": 65,
+                "Name": "Lilla Edet Övre",
+                "Lat": 58.13739,
+                "Lon": 12.11994
+            },
+            {
+                "ID": 54,
+                "Name": "Linasundet",
+                "Lat": 59.21958,
+                "Lon": 17.60938
+            },
+            {
+                "ID": 112,
+                "Name": "Linasundet Sikt",
+                "Lat": 59.2134,
+                "Lon": 17.6102
+            },
+            {
+                "ID": 189,
+                "Name": "Ljusne Lotsstation",
+                "Lat": 61.206775,
+                "Lon": 17.145166
+            },
+            {
+                "ID": 66,
+                "Name": "Ljusne Orrskärskajen",
+                "Lat": 61.211233,
+                "Lon": 17.164083
+            },
+            {
+                "ID": 172,
+                "Name": "Lunde",
+                "Lat": 62.880676,
+                "Lon": 17.876419
+            },
+            {
+                "ID": 68,
+                "Name": "Malmö Hamn",
+                "Lat": 55.6257,
+                "Lon": 12.9845
+            },
+            {
+                "ID": 69,
+                "Name": "Marstrand",
+                "Lat": 57.886966,
+                "Lon": 11.593666
+            },
+            {
+                "ID": 70,
+                "Name": "Mitholmarna",
+                "Lat": 57.9669,
+                "Lon": 11.7283
+            },
+            {
+                "ID": 100,
+                "Name": "Måvholmsbådan",
+                "Lat": 57.67233,
+                "Lon": 11.707477
+            },
+            {
+                "ID": 55,
+                "Name": "Mälaren",
+                "Lat": 59.45,
+                "Lon": 17.2833
+            },
+            {
+                "ID": 131,
+                "Name": "Nordkoster (SMHI)",
+                "Lat": 58.892033,
+                "Lon": 11.003867
+            },
+            {
+                "ID": 133,
+                "Name": "Nordvalen",
+                "Lat": 63.5362,
+                "Lon": 20.7721
+            },
+            {
+                "ID": 1,
+                "Name": "Norrköping NK",
+                "Lat": 58.591333,
+                "Lon": 16.198833
+            },
+            {
+                "ID": 180,
+                "Name": "Norvik (SH)",
+                "Lat": 58.937667,
+                "Lon": 17.979972
+            },
+            {
+                "ID": 173,
+                "Name": "Nynäs fiskehamn",
+                "Lat": 58.900066,
+                "Lon": 17.953583
+            },
+            {
+                "ID": 105,
+                "Name": "Nynäs färjeterminal (SH)",
+                "Lat": 58.9081,
+                "Lon": 17.95834
+            },
+            {
+                "ID": 71,
+                "Name": "Nynäs oljehamn",
+                "Lat": 58.917167,
+                "Lon": 17.973
+            },
+            {
+                "ID": 23,
+                "Name": "Oden",
+                "Lat": 65.2199,
+                "Lon": 22.8108
+            },
+            {
+                "ID": 181,
+                "Name": "Onsala (Chalmers)",
+                "Lat": 57.39198,
+                "Lon": 11.91898
+            },
+            {
+                "ID": 156,
+                "Name": "Oskarshamn (SMHI)",
+                "Lat": 57.275,
+                "Lon": 16.4781
+            },
+            {
+                "ID": 72,
+                "Name": "Oskarshamn Vind",
+                "Lat": 57.2662,
+                "Lon": 16.4762
+            },
+            {
+                "ID": 188,
+                "Name": "Oxelösund Lotsstation",
+                "Lat": 58.661717,
+                "Lon": 17.12475
+            },
+            {
+                "ID": 10,
+                "Name": "Oxelösund Vinterklasen",
+                "Lat": 58.640583,
+                "Lon": 17.129783
+            },
+            {
+                "ID": 102,
+                "Name": "Pite Älv (Skekraft)",
+                "Lat": 65.533004,
+                "Lon": 21.212055
+            },
+            {
+                "ID": 6,
+                "Name": "Pålgrunden (SMHI)",
+                "Lat": 58.755124,
+                "Lon": 13.151424
+            },
+            {
+                "ID": 159,
+                "Name": "Ratan (SMHI)",
+                "Lat": 63.9861,
+                "Lon": 20.895
+            },
+            {
+                "ID": 73,
+                "Name": "Remmargrund",
+                "Lat": 59.7588,
+                "Lon": 19.316767
+            },
+            {
+                "ID": 74,
+                "Name": "Renöragrund",
+                "Lat": 65.193983,
+                "Lon": 21.582666
+            },
+            {
+                "ID": 75,
+                "Name": "Revengegrundet",
+                "Lat": 59.251,
+                "Lon": 19.012833
+            },
+            {
+                "ID": 57,
+                "Name": "Revet",
+                "Lat": 63.655466,
+                "Lon": 20.3401
+            },
+            {
+                "ID": 76,
+                "Name": "Ringhals",
+                "Lat": 57.2498,
+                "Lon": 12.11255
+            },
+            {
+                "ID": 127,
+                "Name": "Ryssmasterna",
+                "Lat": 59.5316,
+                "Lon": 18.5478
+            },
+            {
+                "ID": 77,
+                "Name": "Simpevarp (SKB)",
+                "Lat": 57.40915,
+                "Lon": 16.675933
+            },
+            {
+                "ID": 157,
+                "Name": "Simrishamn (SMHI)",
+                "Lat": 55.5575,
+                "Lon": 14.3578
+            },
+            {
+                "ID": 78,
+                "Name": "Sjötorp",
+                "Lat": 58.83685,
+                "Lon": 13.975567
+            },
+            {
+                "ID": 110,
+                "Name": "Skagsudde",
+                "Lat": 63.188065,
+                "Lon": 19.016092
+            },
+            {
+                "ID": 182,
+                "Name": "Skallen",
+                "Lat": 57.890468,
+                "Lon": 11.558314
+            },
+            {
+                "ID": 162,
+                "Name": "Skanör (SMHI)",
+                "Lat": 55.416666,
+                "Lon": 12.829444
+            },
+            {
+                "ID": 79,
+                "Name": "Skoghall",
+                "Lat": 59.316317,
+                "Lon": 13.4385
+            },
+            {
+                "ID": 80,
+                "Name": "Skötkobben",
+                "Lat": 59.28633,
+                "Lon": 18.89408
+            },
+            {
+                "ID": 81,
+                "Name": "Slite",
+                "Lat": 57.706,
+                "Lon": 18.81
+            },
+            {
+                "ID": 154,
+                "Name": "Smögen (SMHI)",
+                "Lat": 58.353611,
+                "Lon": 11.217777
+            },
+            {
+                "ID": 109,
+                "Name": "Spikarna (SMHI)",
+                "Lat": 62.363333,
+                "Lon": 17.531111
+            },
+            {
+                "ID": 82,
+                "Name": "Stallbackabron",
+                "Lat": 58.309166,
+                "Lon": 12.318666
+            },
+            {
+                "ID": 142,
+                "Name": "Stenungsund (Borealis)",
+                "Lat": 58.087603,
+                "Lon": 11.801748
+            },
+            {
+                "ID": 143,
+                "Name": "Stenungsund (Petroport)",
+                "Lat": 58.091131,
+                "Lon": 11.812719
+            },
+            {
+                "ID": 151,
+                "Name": "Stenungsund (SMHI)",
+                "Lat": 58.088933,
+                "Lon": 11.820667
+            },
+            {
+                "ID": 144,
+                "Name": "Stenungsund (Vattenfall)",
+                "Lat": 58.088906,
+                "Lon": 11.812867
+            },
+            {
+                "ID": 176,
+                "Name": "Stockholm (SMHI)",
+                "Lat": 59.324166,
+                "Lon": 18.081666
+            },
+            {
+                "ID": 98,
+                "Name": "Stretudden",
+                "Lat": 58.35033,
+                "Lon": 11.426483
+            },
+            {
+                "ID": 115,
+                "Name": "Strömören",
+                "Lat": 65.5497,
+                "Lon": 22.23827
+            },
+            {
+                "ID": 83,
+                "Name": "Stötbotten",
+                "Lat": 57.275167,
+                "Lon": 16.553
+            },
+            {
+                "ID": 164,
+                "Name": "Subbeberget",
+                "Lat": 57.088155,
+                "Lon": 12.236916
+            },
+            {
+                "ID": 191,
+                "Name": "Sundsvalls Hamn",
+                "Lat": 62.402386,
+                "Lon": 17.397854
+            },
+            {
+                "ID": 84,
+                "Name": "Sunnanå",
+                "Lat": 58.708033,
+                "Lon": 12.506167
+            },
+            {
+                "ID": 87,
+                "Name": "Svartklubben",
+                "Lat": 60.174433,
+                "Lon": 18.8249
+            },
+            {
+                "ID": 187,
+                "Name": "SVEA",
+                "Lat": 58.275448,
+                "Lon": 11.447572
+            },
+            {
+                "ID": 166,
+                "Name": "Söderarm (SMHI)",
+                "Lat": 59.753119,
+                "Lon": 19.405373
+            },
+            {
+                "ID": 3,
+                "Name": "Södertälje Saltsjön",
+                "Lat": 59.192,
+                "Lon": 17.632333
+            },
+            {
+                "ID": 138,
+                "Name": "Tavastland (SMHI)",
+                "Lat": 63.2923,
+                "Lon": 20.0187
+            },
+            {
+                "ID": 124,
+                "Name": "Tingstad",
+                "Lat": 57.72205,
+                "Lon": 11.98865
+            },
+            {
+                "ID": 101,
+                "Name": "Torshamnen (GBG Hamn)",
+                "Lat": 57.681105,
+                "Lon": 11.7881
+            },
+            {
+                "ID": 106,
+                "Name": "Trollhättan",
+                "Lat": 58.27638,
+                "Lon": 12.27601
+            },
+            {
+                "ID": 88,
+                "Name": "Tån",
+                "Lat": 58.29835,
+                "Lon": 11.32745
+            },
+            {
+                "ID": 171,
+                "Name": "Tångudden",
+                "Lat": 57.682059,
+                "Lon": 11.872151
+            },
+            {
+                "ID": 14,
+                "Name": "Uddevalla (SMHI)",
+                "Lat": 58.345147,
+                "Lon": 11.906945
+            },
+            {
+                "ID": 89,
+                "Name": "Varberg",
+                "Lat": 57.109565,
+                "Lon": 12.241543
+            },
+            {
+                "ID": 107,
+                "Name": "Vargön",
+                "Lat": 58.35727,
+                "Lon": 12.37488
+            },
+            {
+                "ID": 177,
+                "Name": "Verkö (KBP)",
+                "Lat": 56.164433,
+                "Lon": 15.628894
+            },
+            {
+                "ID": 163,
+                "Name": "Viken (SMHI)",
+                "Lat": 56.142222,
+                "Lon": 12.579166
+            },
+            {
+                "ID": 114,
+                "Name": "Vinga",
+                "Lat": 57.631667,
+                "Lon": 11.607583
+            },
+            {
+                "ID": 90,
+                "Name": "Visby",
+                "Lat": 57.6393,
+                "Lon": 18.2845
+            },
+            {
+                "ID": 16,
+                "Name": "Väderöarna vågboj (SMHI)",
+                "Lat": 58.4872,
+                "Lon": 10.9324
+            },
+            {
+                "ID": 92,
+                "Name": "Värmdö Garpen",
+                "Lat": 59.362975,
+                "Lon": 18.376317
+            },
+            {
+                "ID": 93,
+                "Name": "Västerbådan",
+                "Lat": 57.747268,
+                "Lon": 16.741637
+            },
+            {
+                "ID": 149,
+                "Name": "Västervik",
+                "Lat": 57.74815,
+                "Lon": 16.6747
+            },
+            {
+                "ID": 20,
+                "Name": "Ymer",
+                "Lat": 64.9668,
+                "Lon": 21.8171
+            },
+            {
+                "ID": 94,
+                "Name": "Ystad",
+                "Lat": 55.422667,
+                "Lon": 13.8255
+            },
+            {
+                "ID": 95,
+                "Name": "Åkerström",
+                "Lat": 58.258483,
+                "Lon": 12.230783
+            },
+            {
+                "ID": 96,
+                "Name": "Ålandets grund",
+                "Lat": 59.6822,
+                "Lon": 18.9831
+            },
+            {
+                "ID": 97,
+                "Name": "Älvängen",
+                "Lat": 57.9469,
+                "Lon": 12.0871
+            },
+            {
+                "ID": 148,
+                "Name": "Ölands Norra Udde (SMHI)",
+                "Lat": 57.36625,
+                "Lon": 17.097083
+            },
+            {
+                "ID": 136,
+                "Name": "Ölands Södra Udde (SMHI)",
+                "Lat": 56.19766,
+                "Lon": 16.400492
+            },
+            {
+                "ID": 194,
+                "Name": "Östra Älgögrund",
+                "Lat": 59.445468,
+                "Lon": 18.413419
+            }
+        ],
+        "Felmeddelande": null
+    }
+}
