@@ -5,13 +5,13 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-import httpx
 import voluptuous as vol
 
 from homeassistant import config_entries
+from homeassistant.config_entries import ConfigFlowResult
 from homeassistant.core import HomeAssistant
-from homeassistant.data_entry_flow import FlowResult
 from homeassistant.exceptions import HomeAssistantError
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.selector import (
     SelectOptionDict,
     SelectSelector,
@@ -74,9 +74,9 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
-    ) -> FlowResult:
+    ) -> ConfigFlowResult:
         """Handle the initial step."""
-        viva_api = ViVaAPI(websession=httpx.AsyncClient())
+        viva_api = ViVaAPI(websession=async_get_clientsession(self.hass))
         station_list = [
             SelectOptionDict(value=str(st.id), label=st.name)
             for st in await viva_api.get_all_stations()

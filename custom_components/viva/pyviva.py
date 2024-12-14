@@ -141,6 +141,7 @@ class ViVaAPI:
             _LOGGER.error(
                 "API get_data failed. Status: %s, - %s", exc.code, exc.message
             )
+        return []
 
     async def get_station(self, id_no: int) -> SingleStationObservation:
         """Return data from one station."""
