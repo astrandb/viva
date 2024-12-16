@@ -110,10 +110,11 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             _LOGGER.exception("Unexpected exception")
             errors["base"] = "unknown"
         else:
-            title = next(
+            station = next(
                 (item for item in station_list if item["value"] == user_input["id"]),
                 None,
-            )["label"]
+            )
+            title = station["label"] if station is not None else ""
             return self.async_create_entry(title=title, data=user_input)
 
         return self.async_show_form(
