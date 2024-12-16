@@ -134,7 +134,7 @@ class ViVaAPI:
         """Return all stations."""
         try:
             resp = await self.request("get", "")
-            data = resp.json()
+            data = await resp.json()
             result = data["GetStationsResult"]["Stations"]
             return [Station(station_data) for station_data in result]
         except ClientResponseError as exc:
