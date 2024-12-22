@@ -134,13 +134,14 @@ class ViVaAPI:
         """Return all stations."""
         try:
             resp = await self.request("get", "")
-            data = resp.json()
+            data = await resp.json()
             result = data["GetStationsResult"]["Stations"]
             return [Station(station_data) for station_data in result]
         except ClientResponseError as exc:
             _LOGGER.error(
                 "API get_data failed. Status: %s, - %s", exc.code, exc.message
             )
+        return []
 
     async def get_station(self, id_no: int) -> SingleStationObservation:
         """Return data from one station."""
