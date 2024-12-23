@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+from dataclasses import dataclass
 from datetime import timedelta
 import logging
 
@@ -19,16 +20,24 @@ from .pyviva import ViVaAPI
 
 _LOGGER = logging.getLogger(__name__)
 
-PLATFORMS: list[Platform] = [Platform.SENSOR]
+PLATFORMS = [Platform.SENSOR]
+
+type VivaConfigEntry = ConfigEntry[VivaData]
 
 
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+@dataclass
+class VivaData:
+    """Runtime data for Viva integration."""
+
+    api: ViVaAPI
+    coordinator: DataUpdateCoordinator
+
+
+async def async_setup_entry(hass: HomeAssistant, entry: VivaConfigEntry) -> bool:
     """Set up ViVa Weather from a config entry."""
 
-    hass.data.setdefault(DOMAIN, {})
-    hass.data[DOMAIN][entry.entry_id] = {}
-    hass.data[DOMAIN][entry.entry_id]["api"] = ViVaAPI(
-        websession=async_get_clientsession(hass)
+    entry.runtime_data = VivaData(
+        api=ViVaAPI(websession=async_get_clientsession(hass)), coordinator=None
     )
 
     coordinator = await get_coordinator(hass, entry)
@@ -40,24 +49,21 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     return True
 
 
-async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+async def async_unload_entry(hass: HomeAssistant, entry: VivaConfigEntry) -> bool:
     """Unload a config entry."""
-    if unload_ok := await hass.config_entries.async_unload_platforms(entry, PLATFORMS):
-        hass.data[DOMAIN].pop(entry.entry_id)
-
-    return unload_ok
+    return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
 
 
 async def get_coordinator(
     hass: HomeAssistant,
-    entry: ConfigEntry,
+    entry: VivaConfigEntry,
 ) -> DataUpdateCoordinator:
     """Get the data update coordinator."""
-    if "coordinator" in hass.data[DOMAIN][entry.entry_id]:
-        return hass.data[DOMAIN][entry.entry_id]["coordinator"]
+    if entry.runtime_data.coordinator:
+        return entry.runtime_data.coordinator
 
     async def async_fetch():
-        api = hass.data[DOMAIN][entry.entry_id]["api"]
+        api = entry.runtime_data.api
         try:
             async with asyncio.timeout(10):
                 return await api.get_station(entry.data["id"])
@@ -68,12 +74,12 @@ async def get_coordinator(
             _LOGGER.warning("Timeout during coordinator fetch")
             raise UpdateFailed(error) from error
 
-    hass.data[DOMAIN][entry.entry_id]["coordinator"] = DataUpdateCoordinator(
+    entry.runtime_data.coordinator = DataUpdateCoordinator(
         hass,
         logging.getLogger(__name__),
         name=DOMAIN,
         update_method=async_fetch,
         update_interval=timedelta(minutes=5),
     )
-    await hass.data[DOMAIN][entry.entry_id]["coordinator"].async_refresh()
-    return hass.data[DOMAIN][entry.entry_id]["coordinator"]
+    await entry.runtime_data.coordinator.async_refresh()
+    return entry.runtime_data.coordinator

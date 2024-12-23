@@ -13,7 +13,6 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
     SensorStateClass,
 )
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     DEGREE,
     UnitOfLength,
@@ -27,7 +26,7 @@ from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from . import get_coordinator
+from . import VivaConfigEntry, get_coordinator
 from .const import DOMAIN
 
 SENSOR_TYPE_WIND = "wind"
@@ -165,11 +164,11 @@ SIGHT_SENSOR = ViVaSensorDescription(
 
 async def async_setup_entry(
     hass: HomeAssistant,
-    config_entry: ConfigEntry,
+    entry: VivaConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up the sensor platform."""
-    coordinator = await get_coordinator(hass, config_entry)
+    coordinator = await get_coordinator(hass, entry)
 
     entities = []
     for obs in coordinator.data["Samples"]:
