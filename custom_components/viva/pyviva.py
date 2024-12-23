@@ -153,5 +153,4 @@ class ViVaAPI:
         for sample in data["GetSingleStationResult"]["Samples"]:
             res[sample["Name"]] = sample
         result["Samples"] = res
-
         return result
