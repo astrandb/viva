@@ -76,3 +76,7 @@ autolabeler:
       - ".devcontainer.json"
       - "Makefile"
       - "setup.cfg"
+  - label: "tests"
+    files:
+      - "tests/*"
+      
