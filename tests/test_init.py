@@ -21,7 +21,7 @@ async def test_setup_entry(hass: HomeAssistant, bypass_get_data) -> None:
     assert entry.state is ConfigEntryState.LOADED
 
     assert await async_unload_entry(hass, entry)
-    assert entry.entry_id not in hass.data[DOMAIN]
+    assert DOMAIN not in hass.data
 
 
 async def test_devices_created_count(
