@@ -71,3 +71,23 @@ async def test_failed_flow(
         )
 
     assert result["errors"] == {"base": key}
+
+
+async def test_auth_error(hass: HomeAssistant, bypass_get_all_stations) -> None:
+    """Test auth error."""
+
+    result = await hass.config_entries.flow.async_init(
+        DOMAIN, context={"source": config_entries.SOURCE_USER}
+    )
+
+    assert result["type"] is FlowResultType.FORM
+    assert result["errors"] == {}
+
+    with patch(
+        "custom_components.viva.config_flow.ViVaHub.authenticate", return_value=False
+    ):
+        result = await hass.config_entries.flow.async_configure(
+            result["flow_id"], user_input=MOCK_CONFIG
+        )
+
+    assert result["errors"] == {"base": "invalid_auth"}
