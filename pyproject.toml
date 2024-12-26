@@ -427,3 +427,8 @@ split-on-trailing-comma = false
 
 [tool.ruff.lint.mccabe]
 max-complexity = 25
+
+[tool.coverage.run]
+omit = [
+    "*/tests/*"
+    ]

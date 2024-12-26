@@ -9,13 +9,12 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr
 
 from . import setup_integration
-
-MOCK_CONFIG = {"id": "12"}
+from .const import ENTRY_ID, MOCK_CONFIG
 
 
 async def test_setup_entry(hass: HomeAssistant, bypass_get_data) -> None:
     """Test setup entry."""
-    entry = MockConfigEntry(domain=DOMAIN, data=MOCK_CONFIG, entry_id="test")
+    entry = MockConfigEntry(domain=DOMAIN, data=MOCK_CONFIG, entry_id=ENTRY_ID)
     await setup_integration(hass, entry)
 
     assert entry.state is ConfigEntryState.LOADED
@@ -29,7 +28,7 @@ async def test_devices_created_count(
     bypass_get_data,
 ) -> None:
     """Test that one device is created."""
-    config_entry = MockConfigEntry(domain=DOMAIN, data=MOCK_CONFIG, entry_id="test")
+    config_entry = MockConfigEntry(domain=DOMAIN, data=MOCK_CONFIG, entry_id=ENTRY_ID)
 
     await setup_integration(hass, config_entry)
 
