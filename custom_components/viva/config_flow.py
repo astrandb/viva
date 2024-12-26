@@ -126,7 +126,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     ),
                 }
             ),
-            errors={},
+            errors=errors,
         )
 
 

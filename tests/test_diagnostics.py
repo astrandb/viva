@@ -13,7 +13,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.setup import async_setup_component
 from homeassistant.util.json import JsonObjectType
 
-MOCK_CONFIG = {"id": "12"}
+from .const import ENTRY_ID, MOCK_CONFIG
 
 
 async def test_diagnostics(
@@ -23,7 +23,7 @@ async def test_diagnostics(
     bypass_get_data,
 ) -> None:
     """Test diagnostics."""
-    entry = MockConfigEntry(domain=DOMAIN, data=MOCK_CONFIG, entry_id="test")
+    entry = MockConfigEntry(domain=DOMAIN, data=MOCK_CONFIG, entry_id=ENTRY_ID)
     entry.add_to_hass(hass)
     await hass.config_entries.async_setup(entry.entry_id)
     await hass.async_block_till_done()

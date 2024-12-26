@@ -8,7 +8,7 @@ from pytest_homeassistant_custom_component.common import load_fixture
 from pytest_homeassistant_custom_component.syrupy import HomeAssistantSnapshotExtension
 from syrupy import SnapshotAssertion
 
-from custom_components.viva.pyviva import SingleStationObservation
+from custom_components.viva.pyviva import SingleStationObservation, Station
 from homeassistant.core import HomeAssistant
 from homeassistant.util.json import json_loads
 
@@ -24,8 +24,15 @@ def auto_enable_custom_integrations(enable_custom_integrations):
 @pytest.fixture(name="load_default_station")
 def load_default_station_fixture() -> SingleStationObservation:
     """Load data for default station."""
-    # print(json_loads(load_fixture("station_12a.json")))
     return json_loads(load_fixture("station_12a.json"))
+
+
+@pytest.fixture(name="load_all_stations")
+def load_all_stations_fixture() -> list[Station]:
+    """Load data for all stations."""
+    data = json_loads(load_fixture("all_stations.json"))
+    result = data["GetStationsResult"]["Stations"]
+    return [Station(station_data) for station_data in result]
 
 
 @pytest.fixture(name="bypass_get_data")
@@ -37,6 +44,19 @@ def bypass_get_data_fixture(
     with patch(
         "custom_components.viva.pyviva.ViVaAPI.get_station",
         return_value=load_default_station,
+    ):
+        yield
+
+
+@pytest.fixture(name="bypass_get_all_stations")
+def bypass_get_all_stations_fixture(
+    hass: HomeAssistant,
+    load_all_stations: list[Station],
+):
+    """Skip calls to get data from API."""
+    with patch(
+        "custom_components.viva.pyviva.ViVaAPI.get_all_stations",
+        return_value=load_all_stations,
     ):
         yield
 

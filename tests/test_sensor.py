@@ -15,8 +15,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers import entity_registry as er
 
 from . import setup_integration
-
-MOCK_CONFIG = {"id": "12"}
+from .const import ENTRY_ID, MOCK_CONFIG
 
 
 @pytest.mark.usefixtures("entity_registry_enabled_by_default")
@@ -29,7 +28,7 @@ async def test_sensor(
     """Test sensor states."""
 
     mock_config_entry = MockConfigEntry(
-        domain=DOMAIN, data=MOCK_CONFIG, entry_id="test"
+        domain=DOMAIN, data=MOCK_CONFIG, entry_id=ENTRY_ID
     )
 
     with patch("custom_components.viva.PLATFORMS", [Platform.SENSOR]):
