@@ -1,37 +1,38 @@
 """Provide tests for viva sensors."""
 
+from unittest.mock import patch
+
 import pytest
-from pytest_homeassistant_custom_component.common import MockConfigEntry
+from pytest_homeassistant_custom_component.common import (
+    MockConfigEntry,
+    snapshot_platform,
+)
+from syrupy import SnapshotAssertion
 
 from custom_components.viva.const import DOMAIN
+from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers import entity_registry as er
 
 from . import setup_integration
 
 MOCK_CONFIG = {"id": "12"}
 
 
-@pytest.mark.parametrize(
-    ("sensor", "expected_state", "device_class"),
-    [
-        ("sensor.forsmark_water_temperature", "2.1", "temperature"),
-        ("sensor.forsmark_wind_strength", "3.6", "wind_speed"),
-        ("sensor.forsmark_sealevel", "-33", "distance"),
-    ],
-)
+@pytest.mark.usefixtures("entity_registry_enabled_by_default")
 async def test_sensor(
     hass: HomeAssistant,
     bypass_get_data,
-    sensor: str,
-    expected_state: str,
-    device_class: str,
+    snapshot: SnapshotAssertion,
+    entity_registry: er.EntityRegistry,
 ) -> None:
-    """Test sensor."""
-    config_entry = MockConfigEntry(domain=DOMAIN, data=MOCK_CONFIG, entry_id="test")
+    """Test sensor states."""
 
-    await setup_integration(hass, config_entry)
+    mock_config_entry = MockConfigEntry(
+        domain=DOMAIN, data=MOCK_CONFIG, entry_id="test"
+    )
 
-    state = hass.states.get(sensor)
-    assert state is not None
-    assert state.state == expected_state
-    assert state.attributes["device_class"] == device_class
+    with patch("custom_components.viva.PLATFORMS", [Platform.SENSOR]):
+        await setup_integration(hass, mock_config_entry)
+
+    await snapshot_platform(hass, entity_registry, snapshot, mock_config_entry.entry_id)
