@@ -50,7 +50,7 @@
     'last_changed': <ANY>,
     'last_reported': <ANY>,
     'last_updated': <ANY>,
-    'state': '4.0',
+    'state': '5.2',
   })
 # ---
 # name: test_sensor[sensor.forsmark_sealevel-entry]
@@ -102,7 +102,7 @@
     'last_changed': <ANY>,
     'last_reported': <ANY>,
     'last_updated': <ANY>,
-    'state': '-33',
+    'state': '-30',
   })
 # ---
 # name: test_sensor[sensor.forsmark_water_temperature-entry]
@@ -153,7 +153,7 @@
     'last_changed': <ANY>,
     'last_reported': <ANY>,
     'last_updated': <ANY>,
-    'state': '2.1',
+    'state': '2.4',
   })
 # ---
 # name: test_sensor[sensor.forsmark_wind_bearing-entry]
@@ -204,7 +204,7 @@
     'last_changed': <ANY>,
     'last_reported': <ANY>,
     'last_updated': <ANY>,
-    'state': '101',
+    'state': '90',
   })
 # ---
 # name: test_sensor[sensor.forsmark_wind_direction-entry]
@@ -305,6 +305,821 @@
     'last_changed': <ANY>,
     'last_reported': <ANY>,
     'last_updated': <ANY>,
-    'state': '3.6',
+    'state': '4.7',
+  })
+# ---
+# name: test_sensor_additional_stations[station_135.json][sensor.brofjordens_angoring_temperature-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': dict({
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.brofjordens_angoring_temperature',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': <SensorDeviceClass.TEMPERATURE: 'temperature'>,
+    'original_icon': None,
+    'original_name': 'Temperature',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': None,
+    'unique_id': '135-temperatur',
+    'unit_of_measurement': <UnitOfTemperature.CELSIUS: '°C'>,
+  })
+# ---
+# name: test_sensor_additional_stations[station_135.json][sensor.brofjordens_angoring_temperature-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'device_class': 'temperature',
+      'friendly_name': 'Brofjordens Angöring Temperature',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': <UnitOfTemperature.CELSIUS: '°C'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.brofjordens_angoring_temperature',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '7.2',
+  })
+# ---
+# name: test_sensor_additional_stations[station_135.json][sensor.brofjordens_angoring_water_temperature-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': dict({
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.brofjordens_angoring_water_temperature',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': <SensorDeviceClass.TEMPERATURE: 'temperature'>,
+    'original_icon': None,
+    'original_name': 'Water temperature',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': 'water_temperature',
+    'unique_id': '135-Vattentemp',
+    'unit_of_measurement': <UnitOfTemperature.CELSIUS: '°C'>,
+  })
+# ---
+# name: test_sensor_additional_stations[station_135.json][sensor.brofjordens_angoring_water_temperature-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'device_class': 'temperature',
+      'friendly_name': 'Brofjordens Angöring Water temperature',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': <UnitOfTemperature.CELSIUS: '°C'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.brofjordens_angoring_water_temperature',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '6.8',
+  })
+# ---
+# name: test_sensor_additional_stations[station_135.json][sensor.brofjordens_angoring_wave_bearing-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': dict({
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.brofjordens_angoring_wave_bearing',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:compass-outline',
+    'original_name': 'Wave bearing',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': 'wave_bearing',
+    'unique_id': '135-Vågriktning_int',
+    'unit_of_measurement': '°',
+  })
+# ---
+# name: test_sensor_additional_stations[station_135.json][sensor.brofjordens_angoring_wave_bearing-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Brofjordens Angöring Wave bearing',
+      'icon': 'mdi:compass-outline',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': '°',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.brofjordens_angoring_wave_bearing',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '233',
+  })
+# ---
+# name: test_sensor_additional_stations[station_135.json][sensor.brofjordens_angoring_wave_direction-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.brofjordens_angoring_wave_direction',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:compass-outline',
+    'original_name': 'Wave direction',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': 'wave_direction',
+    'unique_id': '135-Vågriktning',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_additional_stations[station_135.json][sensor.brofjordens_angoring_wave_direction-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Brofjordens Angöring Wave direction',
+      'icon': 'mdi:compass-outline',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.brofjordens_angoring_wave_direction',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'SV',
+  })
+# ---
+# name: test_sensor_additional_stations[station_135.json][sensor.brofjordens_angoring_wave_height-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': dict({
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.brofjordens_angoring_wave_height',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': <SensorDeviceClass.DISTANCE: 'distance'>,
+    'original_icon': 'mdi:waves',
+    'original_name': 'Wave height',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': 'wave_height',
+    'unique_id': '135-Våghöjd',
+    'unit_of_measurement': <UnitOfLength.METERS: 'm'>,
+  })
+# ---
+# name: test_sensor_additional_stations[station_135.json][sensor.brofjordens_angoring_wave_height-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'device_class': 'distance',
+      'friendly_name': 'Brofjordens Angöring Wave height',
+      'icon': 'mdi:waves',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': <UnitOfLength.METERS: 'm'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.brofjordens_angoring_wave_height',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '0.6',
+  })
+# ---
+# name: test_sensor_additional_stations[station_135.json][sensor.brofjordens_angoring_wave_period-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': dict({
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.brofjordens_angoring_wave_period',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:waves',
+    'original_name': 'Wave period',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': 'wave_period',
+    'unique_id': '135-Vågperiod',
+    'unit_of_measurement': <UnitOfTime.SECONDS: 's'>,
+  })
+# ---
+# name: test_sensor_additional_stations[station_135.json][sensor.brofjordens_angoring_wave_period-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Brofjordens Angöring Wave period',
+      'icon': 'mdi:waves',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': <UnitOfTime.SECONDS: 's'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.brofjordens_angoring_wave_period',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '6.7',
+  })
+# ---
+# name: test_sensor_additional_stations[station_166.json][sensor.soderarm_smhi_gust_strength-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': dict({
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.soderarm_smhi_gust_strength',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+      'sensor.private': dict({
+        'suggested_unit_of_measurement': <UnitOfSpeed.METERS_PER_SECOND: 'm/s'>,
+      }),
+    }),
+    'original_device_class': <SensorDeviceClass.WIND_SPEED: 'wind_speed'>,
+    'original_icon': None,
+    'original_name': 'Gust strength',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': 'gust_strength',
+    'unique_id': '166-Byvind',
+    'unit_of_measurement': <UnitOfSpeed.METERS_PER_SECOND: 'm/s'>,
+  })
+# ---
+# name: test_sensor_additional_stations[station_166.json][sensor.soderarm_smhi_gust_strength-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'device_class': 'wind_speed',
+      'friendly_name': 'Söderarm (SMHI) Gust strength',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': <UnitOfSpeed.METERS_PER_SECOND: 'm/s'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.soderarm_smhi_gust_strength',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '3.9',
+  })
+# ---
+# name: test_sensor_additional_stations[station_166.json][sensor.soderarm_smhi_temperature-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': dict({
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.soderarm_smhi_temperature',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': <SensorDeviceClass.TEMPERATURE: 'temperature'>,
+    'original_icon': None,
+    'original_name': 'Temperature',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': None,
+    'unique_id': '166-temperatur',
+    'unit_of_measurement': <UnitOfTemperature.CELSIUS: '°C'>,
+  })
+# ---
+# name: test_sensor_additional_stations[station_166.json][sensor.soderarm_smhi_temperature-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'device_class': 'temperature',
+      'friendly_name': 'Söderarm (SMHI) Temperature',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': <UnitOfTemperature.CELSIUS: '°C'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.soderarm_smhi_temperature',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '3.7',
+  })
+# ---
+# name: test_sensor_additional_stations[station_166.json][sensor.soderarm_smhi_wind_bearing-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': dict({
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.soderarm_smhi_wind_bearing',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:compass-outline',
+    'original_name': 'Wind bearing',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': 'wind_bearing',
+    'unique_id': '166-Vindriktning_int',
+    'unit_of_measurement': '°',
+  })
+# ---
+# name: test_sensor_additional_stations[station_166.json][sensor.soderarm_smhi_wind_bearing-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Söderarm (SMHI) Wind bearing',
+      'icon': 'mdi:compass-outline',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': '°',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.soderarm_smhi_wind_bearing',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '273',
+  })
+# ---
+# name: test_sensor_additional_stations[station_166.json][sensor.soderarm_smhi_wind_direction-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.soderarm_smhi_wind_direction',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:compass-outline',
+    'original_name': 'Wind direction',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': 'wind_direction',
+    'unique_id': '166-Vindriktning',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_additional_stations[station_166.json][sensor.soderarm_smhi_wind_direction-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Söderarm (SMHI) Wind direction',
+      'icon': 'mdi:compass-outline',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.soderarm_smhi_wind_direction',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'V',
+  })
+# ---
+# name: test_sensor_additional_stations[station_166.json][sensor.soderarm_smhi_wind_strength-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': dict({
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.soderarm_smhi_wind_strength',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+      'sensor.private': dict({
+        'suggested_unit_of_measurement': <UnitOfSpeed.METERS_PER_SECOND: 'm/s'>,
+      }),
+    }),
+    'original_device_class': <SensorDeviceClass.WIND_SPEED: 'wind_speed'>,
+    'original_icon': None,
+    'original_name': 'Wind strength',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': 'wind_strength',
+    'unique_id': '166-Medelvind',
+    'unit_of_measurement': <UnitOfSpeed.METERS_PER_SECOND: 'm/s'>,
+  })
+# ---
+# name: test_sensor_additional_stations[station_166.json][sensor.soderarm_smhi_wind_strength-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'device_class': 'wind_speed',
+      'friendly_name': 'Söderarm (SMHI) Wind strength',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': <UnitOfSpeed.METERS_PER_SECOND: 'm/s'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.soderarm_smhi_wind_strength',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '3.4',
+  })
+# ---
+# name: test_sensor_additional_stations[station_88.json][sensor.tan_gust_strength-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': dict({
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.tan_gust_strength',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+      'sensor.private': dict({
+        'suggested_unit_of_measurement': <UnitOfSpeed.METERS_PER_SECOND: 'm/s'>,
+      }),
+    }),
+    'original_device_class': <SensorDeviceClass.WIND_SPEED: 'wind_speed'>,
+    'original_icon': None,
+    'original_name': 'Gust strength',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': 'gust_strength',
+    'unique_id': '88-Byvind',
+    'unit_of_measurement': <UnitOfSpeed.METERS_PER_SECOND: 'm/s'>,
+  })
+# ---
+# name: test_sensor_additional_stations[station_88.json][sensor.tan_gust_strength-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'device_class': 'wind_speed',
+      'friendly_name': 'Tån Gust strength',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': <UnitOfSpeed.METERS_PER_SECOND: 'm/s'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.tan_gust_strength',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '6.1',
+  })
+# ---
+# name: test_sensor_additional_stations[station_88.json][sensor.tan_sikt-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.tan_sikt',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': <SensorDeviceClass.DISTANCE: 'distance'>,
+    'original_icon': 'mdi:binoculars',
+    'original_name': 'Sikt',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': None,
+    'unique_id': '88-Sikt',
+    'unit_of_measurement': 'm',
+  })
+# ---
+# name: test_sensor_additional_stations[station_88.json][sensor.tan_sikt-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'device_class': 'distance',
+      'friendly_name': 'Tån Sikt',
+      'icon': 'mdi:binoculars',
+      'unit_of_measurement': 'm',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.tan_sikt',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '1139',
+  })
+# ---
+# name: test_sensor_additional_stations[station_88.json][sensor.tan_wind_bearing-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': dict({
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.tan_wind_bearing',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:compass-outline',
+    'original_name': 'Wind bearing',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': 'wind_bearing',
+    'unique_id': '88-Vindriktning_int',
+    'unit_of_measurement': '°',
+  })
+# ---
+# name: test_sensor_additional_stations[station_88.json][sensor.tan_wind_bearing-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Tån Wind bearing',
+      'icon': 'mdi:compass-outline',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': '°',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.tan_wind_bearing',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '237',
+  })
+# ---
+# name: test_sensor_additional_stations[station_88.json][sensor.tan_wind_direction-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.tan_wind_direction',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+    }),
+    'original_device_class': None,
+    'original_icon': 'mdi:compass-outline',
+    'original_name': 'Wind direction',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': 'wind_direction',
+    'unique_id': '88-Vindriktning',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_sensor_additional_stations[station_88.json][sensor.tan_wind_direction-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Tån Wind direction',
+      'icon': 'mdi:compass-outline',
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.tan_wind_direction',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'SV',
+  })
+# ---
+# name: test_sensor_additional_stations[station_88.json][sensor.tan_wind_strength-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': set({
+    }),
+    'area_id': None,
+    'capabilities': dict({
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.tan_wind_strength',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'options': dict({
+      'sensor.private': dict({
+        'suggested_unit_of_measurement': <UnitOfSpeed.METERS_PER_SECOND: 'm/s'>,
+      }),
+    }),
+    'original_device_class': <SensorDeviceClass.WIND_SPEED: 'wind_speed'>,
+    'original_icon': None,
+    'original_name': 'Wind strength',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'supported_features': 0,
+    'translation_key': 'wind_strength',
+    'unique_id': '88-Medelvind',
+    'unit_of_measurement': <UnitOfSpeed.METERS_PER_SECOND: 'm/s'>,
+  })
+# ---
+# name: test_sensor_additional_stations[station_88.json][sensor.tan_wind_strength-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'device_class': 'wind_speed',
+      'friendly_name': 'Tån Wind strength',
+      'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+      'unit_of_measurement': <UnitOfSpeed.METERS_PER_SECOND: 'm/s'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.tan_wind_strength',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '5.0',
   })
 # ---

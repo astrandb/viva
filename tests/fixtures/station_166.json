@@ -1,0 +1,69 @@
+{
+    "GetSingleStationResult": {
+        "ID": 166,
+        "Name": "Söderarm (SMHI)",
+        "Samples": [
+            {
+                "Name": "Byvind",
+                "Value": "V 3.9",
+                "Heading": 273,
+                "Unit": "m/s",
+                "Type": "wind",
+                "Trend": "",
+                "Msg": "",
+                "Calm": 0,
+                "Updated": "2024-12-27 12:05:00",
+                "StationID": 166,
+                "Quality": "Ok",
+                "WaterLevelReference": null,
+                "WaterLevelOffset": null
+            },
+            {
+                "Name": "Medelvind",
+                "Value": "V 3.4",
+                "Heading": 273,
+                "Unit": "m/s",
+                "Type": "wind",
+                "Trend": "",
+                "Msg": "",
+                "Calm": 0,
+                "Updated": "2024-12-27 12:05:00",
+                "StationID": 166,
+                "Quality": "Ok",
+                "WaterLevelReference": null,
+                "WaterLevelOffset": null
+            },
+            {
+                "Name": "Luftfuktighet",
+                "Value": "90.7",
+                "Heading": 0,
+                "Unit": "%",
+                "Type": "air",
+                "Trend": "",
+                "Msg": "",
+                "Calm": 0,
+                "Updated": "2024-12-27 12:04:00",
+                "StationID": 166,
+                "Quality": "Ok",
+                "WaterLevelReference": null,
+                "WaterLevelOffset": null
+            },
+            {
+                "Name": "Lufttemp",
+                "Value": "3.7",
+                "Heading": 0,
+                "Unit": "°C",
+                "Type": "airtemp",
+                "Trend": "",
+                "Msg": "",
+                "Calm": 0,
+                "Updated": "2024-12-27 12:04:00",
+                "StationID": 166,
+                "Quality": "Ok",
+                "WaterLevelReference": null,
+                "WaterLevelOffset": null
+            }
+        ],
+        "Felmeddelande": null
+    }
+}

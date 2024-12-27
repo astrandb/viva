@@ -1,0 +1,54 @@
+{
+    "GetSingleStationResult": {
+        "ID": 88,
+        "Name": "Tån",
+        "Samples": [
+            {
+                "Name": "Byvind",
+                "Value": "SV 6.1",
+                "Heading": 237,
+                "Unit": "m/s",
+                "Type": "wind",
+                "Trend": "",
+                "Msg": "",
+                "Calm": 0,
+                "Updated": "2024-12-27 12:25:09",
+                "StationID": 88,
+                "Quality": "Ok",
+                "WaterLevelReference": null,
+                "WaterLevelOffset": null
+            },
+            {
+                "Name": "Medelvind",
+                "Value": "SV 5.0",
+                "Heading": 237,
+                "Unit": "m/s",
+                "Type": "wind",
+                "Trend": "",
+                "Msg": "",
+                "Calm": 0,
+                "Updated": "2024-12-27 12:25:09",
+                "StationID": 88,
+                "Quality": "Ok",
+                "WaterLevelReference": null,
+                "WaterLevelOffset": null
+            },
+            {
+                "Name": "Sikt",
+                "Value": "1139",
+                "Heading": 0,
+                "Unit": "m",
+                "Type": "sight",
+                "Trend": "",
+                "Msg": "",
+                "Calm": 0,
+                "Updated": "2024-12-27 12:25:09",
+                "StationID": 88,
+                "Quality": "Ok",
+                "WaterLevelReference": null,
+                "WaterLevelOffset": null
+            }
+        ],
+        "Felmeddelande": null
+    }
+}

@@ -21,10 +21,22 @@ def auto_enable_custom_integrations(enable_custom_integrations):
     return
 
 
+@pytest.fixture
+def data_file_name() -> str:
+    """Filename for data fixture."""
+    return "station_12.json"
+
+
 @pytest.fixture(name="load_default_station")
-def load_default_station_fixture() -> SingleStationObservation:
+def load_default_station_fixture(data_file_name: str) -> SingleStationObservation:
     """Load data for default station."""
-    return json_loads(load_fixture("station_12a.json"))
+    data = json_loads(load_fixture(data_file_name))
+    result = data["GetSingleStationResult"]
+    res = {}
+    for sample in data["GetSingleStationResult"]["Samples"]:
+        res[sample["Name"]] = sample
+    result["Samples"] = res
+    return result
 
 
 @pytest.fixture(name="load_all_stations")
