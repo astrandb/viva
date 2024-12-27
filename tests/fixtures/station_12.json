@@ -62,6 +62,21 @@
                 "Quality": "Ok",
                 "WaterLevelReference": null,
                 "WaterLevelOffset": null
+            },
+            {
+                "Name": "Lufttemp",
+                "Value": "-",
+                "Heading": 0,
+                "Unit": "°C",
+                "Type": "airtemp",
+                "Trend": "",
+                "Msg": "",
+                "Calm": 0,
+                "Updated": "2024-12-27 12:04:00",
+                "StationID": 166,
+                "Quality": "Ok",
+                "WaterLevelReference": null,
+                "WaterLevelOffset": null
             }
         ],
         "Felmeddelande": null
