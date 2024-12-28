@@ -67,9 +67,9 @@ async def get_coordinator(
         try:
             async with asyncio.timeout(10):
                 return await api.get_station(entry.data["id"])
-        except ClientResponseError as exc:
-            _LOGGER.warning("API fetch failed. Status: %s, - %s", exc.code, exc.message)
-            raise UpdateFailed(exc) from exc
+        except ClientResponseError as error:
+            # _LOGGER.warning("API fetch failed: %s", exc)
+            raise UpdateFailed(error) from error
         except TimeoutError as error:
             _LOGGER.warning("Timeout during coordinator fetch")
             raise UpdateFailed(error) from error

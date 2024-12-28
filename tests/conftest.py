@@ -87,3 +87,12 @@ def entity_registry_enabled_by_default() -> Generator[None]:
 def snapshot(snapshot: SnapshotAssertion) -> SnapshotAssertion:
     """Return snapshot assertion fixture with the Home Assistant extension."""
     return snapshot.use_extension(HomeAssistantSnapshotExtension)
+
+
+@pytest.fixture
+def mock_api():
+    """Mock api."""
+    with (
+        patch("custom_components.viva.pyviva.ViVaAPI.get_station") as mock_api,
+    ):
+        yield mock_api

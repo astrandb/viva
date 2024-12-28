@@ -2,7 +2,6 @@
 
 from unittest.mock import patch
 
-# from pytest_homeassistant_custom_component.common import MockConfigEntry
 import pytest
 
 from custom_components.viva.config_flow import CannotConnect, InvalidAuth
