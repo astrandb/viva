@@ -1,5 +1,7 @@
 """Test initial setup."""
 
+from aiohttp import ClientResponseError
+import pytest
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
 from custom_components.viva import async_unload_entry
@@ -35,3 +37,15 @@ async def test_devices_created_count(
     device_registry = dr.async_get(hass)
 
     assert len(device_registry.devices) == 1
+
+
+@pytest.mark.parametrize("exception", [ClientResponseError, TimeoutError])
+async def test_api_error(hass: HomeAssistant, exception, mock_api) -> None:
+    """Test for exceptions during data fetch."""
+    entry = MockConfigEntry(domain=DOMAIN, data=MOCK_CONFIG, entry_id=ENTRY_ID)
+    entry.add_to_hass(hass)
+    mock_api.side_effect = exception
+    await hass.config_entries.async_setup(entry.entry_id)
+    await hass.async_block_till_done()
+
+    assert entry.state is ConfigEntryState.SETUP_RETRY
