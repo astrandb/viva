@@ -78,6 +78,7 @@ async def get_coordinator(
         hass,
         logging.getLogger(__name__),
         name=DOMAIN,
+        config_entry=entry,
         update_method=async_fetch,
         update_interval=timedelta(minutes=5),
     )
