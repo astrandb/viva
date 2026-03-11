@@ -1,3 +1,22 @@
+[tool.bumpver]
+current_version = "2026.3.0"
+version_pattern = "YYYY.MM.PATCH[PYTAGNUM]"
+commit_message = "Bump version from {old_version} to {new_version}"
+commit = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"']
+
+"**/manifest.json" = ['"version": "{version}"']
+
+"custom_components/*/const.py" = ['^VERSION = "{version}"']
+
+".github/release-drafter.yml" = [
+    # 'name-template: "Example title - "v{version}"',
+    # 'tag-template: "v{version}"',
+    'v{version}',
+]
+
 [tool.pylint."MESSAGES CONTROL"]
 # Reasons disabled:
 # format - handled by ruff
