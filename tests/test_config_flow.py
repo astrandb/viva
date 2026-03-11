@@ -6,7 +6,7 @@ import pytest
 
 from custom_components.viva.config_flow import CannotConnect, InvalidAuth
 from custom_components.viva.const import DOMAIN
-from homeassistant import config_entries, data_entry_flow
+from homeassistant import config_entries
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResultType
 
@@ -37,7 +37,7 @@ async def test_succesful_flow(hass: HomeAssistant, bypass_get_all_stations) -> N
         result["flow_id"], user_input=MOCK_CONFIG
     )
 
-    assert result["type"] == data_entry_flow.RESULT_TYPE_CREATE_ENTRY
+    assert result["type"] == FlowResultType.CREATE_ENTRY
     # assert result["title"] == MOCK_CONFIG[CONF_PORT]
     assert result["data"] == MOCK_CONFIG
     assert result["result"]
