@@ -226,7 +226,7 @@ class ViVaSensor(CoordinatorEntity, SensorEntity):
             name=self.coordinator.data["Name"],
             manufacturer="Sjöfartsverket",
             model="ViVa",
-            configuration_url="https://geokatalog.sjofartsverket.se/kartvisarefyren/",
+            configuration_url="https://viva.sjofartsverket.se",
             entry_type=DeviceEntryType.SERVICE,
         )
 
