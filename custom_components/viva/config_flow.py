@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-import voluptuous as vol
+import probatio
 
 from homeassistant import config_entries
 from homeassistant.config_entries import ConfigFlowResult
@@ -24,9 +24,9 @@ from .pyviva import ViVaAPI
 _LOGGER = logging.getLogger(__name__)
 
 STEP_USER_DATA_SCHEMA = (
-    vol.Schema(
+    probatio.Schema(
         {
-            vol.Required("id"): str,
+            probatio.Required("id"): str,
         }
     ),
 )
@@ -85,9 +85,9 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is None:
             return self.async_show_form(
                 step_id="user",
-                data_schema=vol.Schema(
+                data_schema=probatio.Schema(
                     {
-                        vol.Required("id"): SelectSelector(
+                        probatio.Required("id"): SelectSelector(
                             SelectSelectorConfig(options=station_list)
                         ),
                     }
@@ -119,9 +119,9 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         return self.async_show_form(
             step_id="user",
-            data_schema=vol.Schema(
+            data_schema=probatio.Schema(
                 {
-                    vol.Required("id"): SelectSelector(
+                    probatio.Required("id"): SelectSelector(
                         SelectSelectorConfig(options=station_list)
                     ),
                 }
