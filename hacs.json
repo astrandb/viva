@@ -1,7 +1,7 @@
 {
   "name": "ViVa Coastal Weather",
   "filename": "viva.zip",
-  "homeassistant": "2023.7.0",
+  "homeassistant": "2026.10.0",
   "render_readme": true,
   "zip_release": true
 }
