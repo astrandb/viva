@@ -277,7 +277,7 @@ enable = [
 asyncio_mode = "auto"
 
 [tool.ruff]
-required-version = ">=0.4.1"
+required-version = ">=0.15.1"
 
 [tool.ruff.lint]
 select = [
