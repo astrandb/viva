@@ -1,6 +1,10 @@
 {
   "domain": "viva",
   "name": "ViVa Coastal Weather",
+  "categories": [
+    "sensors.temperature_humidity",
+    "weather_alerts"
+  ],
   "codeowners": [
     "@astrandb"
   ],
@@ -13,6 +17,6 @@
   "issue_tracker": "https://github.com/astrandb/viva/issues",
   "requirements": [],
   "ssdp": [],
-  "version": "2026.10.0",
+  "version": "2026.10.1",
   "zeroconf": []
 }
