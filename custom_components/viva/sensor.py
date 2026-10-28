@@ -21,8 +21,7 @@ from homeassistant.const import (
     UnitOfTime,
 )
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.device_registry import DeviceEntryType
-from homeassistant.helpers.entity import DeviceInfo
+from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
@@ -267,7 +266,7 @@ class ViVaSensor(CoordinatorEntity, SensorEntity):
         return retstr
 
     @property
-    def available(self):
+    def available(self) -> bool:
         """Return the availability of the entity."""
 
         return (
