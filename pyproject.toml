@@ -1,7 +1,6 @@
 [tool.bumpver]
 current_version = "2026.10.1"
 version_pattern = "YYYY.MM.PATCH[PYTAGNUM]"
-commit_message = "Bump version from {old_version} to {new_version}"
 commit = false
 
 [tool.bumpver.file_patterns]
@@ -12,9 +11,10 @@ commit = false
 "custom_components/*/const.py" = ['^VERSION = "{version}"']
 
 ".github/release-drafter.yml" = [
-    # 'name-template: "Example title - "v{version}"',
-    # 'tag-template: "v{version}"',
-    'v{version}',
+    'name-template: "Example title - v{version}"',
+    'tag-template: "v{version}"',
+    '/v{version}/',
+    '/v{version})',
 ]
 
 [tool.pylint."MESSAGES CONTROL"]
