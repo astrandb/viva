@@ -1,7 +1,5 @@
 """Platform for sensor integration."""
 
-from __future__ import annotations
-
 from collections.abc import Callable
 from dataclasses import dataclass
 import logging
@@ -16,6 +14,7 @@ from homeassistant.components.sensor import (
 from homeassistant.const import (
     DEGREE,
     UnitOfLength,
+    UnitOfRatio,
     UnitOfSpeed,
     UnitOfTemperature,
     UnitOfTime,
@@ -25,14 +24,15 @@ from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from . import VivaConfigEntry, get_coordinator
 from .const import DOMAIN
+from .coordinator import VivaConfigEntry, VivaCoordinator
 
 SENSOR_TYPE_WIND = "wind"
 SENSOR_TYPE_WIND_DIRECTION = "wind_direction"
 SENSOR_TYPE_WIND_BEARING = "wind_bearing"
 SENSOR_TYPE_LEVEL = "level"
 SENSOR_TYPE_WATER_TEMP = "watertemp"
+SENSOR_TYPE_AIR_HUMIDITY = "air"
 SENSOR_TYPE_AIR_TEMP = "airtemp"
 SENSOR_TYPE_SIGHT = "sight"
 SENSOR_TYPE_WAVE = "wave"
@@ -150,13 +150,20 @@ AIR_TEMP_SENSOR = ViVaSensorDescription(
     native_unit_of_measurement=UnitOfTemperature.CELSIUS,
     state_class=SensorStateClass.MEASUREMENT,
 )
-
+AIR_HUMIDITY_SENSOR = ViVaSensorDescription(
+    key="luftfuktighet",
+    type=SENSOR_TYPE_AIR_HUMIDITY,
+    device_class=SensorDeviceClass.HUMIDITY,
+    native_unit_of_measurement=UnitOfRatio.PERCENTAGE,
+    suggested_display_precision=0,
+    state_class=SensorStateClass.MEASUREMENT,
+)
 SIGHT_SENSOR = ViVaSensorDescription(
     key="Sikt",
     type=SENSOR_TYPE_SIGHT,
     device_class=SensorDeviceClass.DISTANCE,
     icon="mdi:binoculars",
-    name="Sikt",
+    translation_key="visibility",
     native_unit_of_measurement="m",
 )
 
@@ -167,11 +174,11 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up the sensor platform."""
-    coordinator = await get_coordinator(hass, entry)
+    coordinator = entry.runtime_data.coordinator
 
     entities = []
-    for obs in coordinator.data["Samples"]:
-        obs2 = coordinator.data["Samples"][obs]
+    for obs in coordinator.data.station_data["Samples"]:
+        obs2 = coordinator.data.station_data["Samples"][obs]
         if obs2["Type"] == SENSOR_TYPE_LEVEL:
             entities.append(ViVaSensor(coordinator, LEVEL_SENSOR, obs))
         elif obs2["Type"] == SENSOR_TYPE_WIND and obs2["Name"] == "Medelvind":
@@ -184,6 +191,8 @@ async def async_setup_entry(
             entities.append(ViVaSensor(coordinator, TEMP_SENSOR, obs))
         elif obs2["Type"] == SENSOR_TYPE_AIR_TEMP:
             entities.append(ViVaSensor(coordinator, AIR_TEMP_SENSOR, obs))
+        elif obs2["Type"] == SENSOR_TYPE_AIR_HUMIDITY:
+            entities.append(ViVaSensor(coordinator, AIR_HUMIDITY_SENSOR, obs))
         elif obs2["Type"] == SENSOR_TYPE_SIGHT:
             entities.append(ViVaSensor(coordinator, SIGHT_SENSOR, obs))
         elif obs2["Type"] == SENSOR_TYPE_WAVE and obs2["Name"] == "Våghöjd":
@@ -205,24 +214,29 @@ async def async_setup_entry(
     async_add_entities(entities)
 
 
-class ViVaSensor(CoordinatorEntity, SensorEntity):
+class ViVaSensor(CoordinatorEntity[VivaCoordinator], SensorEntity):
     """Representation of a Sensor."""
 
     entity_description: ViVaSensorDescription
     sensor_id: str = ""
 
-    def __init__(self, coordinator, description: ViVaSensorDescription, sensor_id: str):
+    def __init__(
+        self,
+        coordinator: VivaCoordinator,
+        description: ViVaSensorDescription,
+        sensor_id: str,
+    ):
         """Initialize the sensor."""
         super().__init__(coordinator)
         self.entity_description = description
         self.sensor_id = sensor_id
         self._attr_has_entity_name = True
         self._attr_unique_id = (
-            f"{self.coordinator.data['ID']}-{self.entity_description.key}"
+            f"{self.coordinator.data.station_data['ID']}-{self.entity_description.key}"
         )
         self._attr_device_info = DeviceInfo(
-            identifiers={(DOMAIN, self.coordinator.data["ID"])},
-            name=self.coordinator.data["Name"],
+            identifiers={(DOMAIN, self.coordinator.data.station_data["ID"])},
+            name=self.coordinator.data.station_data["Name"],
             manufacturer="Sjöfartsverket",
             model="ViVa",
             configuration_url="https://viva.sjofartsverket.se",
@@ -233,7 +247,9 @@ class ViVaSensor(CoordinatorEntity, SensorEntity):
     def native_value(self) -> float | str | None:
         """Return the state of the sensor."""
 
-        retstr = self.coordinator.data["Samples"][self.sensor_id].get("Value")
+        retstr = self.coordinator.data.station_data["Samples"][self.sensor_id].get(
+            "Value"
+        )
 
         if retstr == "-":
             return None
@@ -251,14 +267,18 @@ class ViVaSensor(CoordinatorEntity, SensorEntity):
             return retval[0]
 
         if self.entity_description.type == SENSOR_TYPE_WAVE_BEARING:
-            return self.coordinator.data["Samples"][self.sensor_id].get("Heading")
+            return self.coordinator.data.station_data["Samples"][self.sensor_id].get(
+                "Heading"
+            )
 
         if self.entity_description.type == SENSOR_TYPE_WIND_DIRECTION:
             retval = retstr.split()
             return retval[0]
 
         if self.entity_description.type == SENSOR_TYPE_WIND_BEARING:
-            return self.coordinator.data["Samples"][self.sensor_id].get("Heading")
+            return self.coordinator.data.station_data["Samples"][self.sensor_id].get(
+                "Heading"
+            )
 
         if self.entity_description.type == SENSOR_TYPE_SIGHT:
             return retstr.replace(">", "")
@@ -271,6 +291,6 @@ class ViVaSensor(CoordinatorEntity, SensorEntity):
 
         return (
             self.coordinator.last_update_success
-            and "Samples" in self.coordinator.data
-            and self.sensor_id in self.coordinator.data["Samples"]
+            and "Samples" in self.coordinator.data.station_data
+            and self.sensor_id in self.coordinator.data.station_data["Samples"]
         )

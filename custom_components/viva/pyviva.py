@@ -2,8 +2,6 @@
 
 # Move to pypi.org when stable
 
-from __future__ import annotations
-
 import logging
 from typing import Any, TypedDict
 
@@ -86,7 +84,7 @@ class Observation:
         return self.raw_data["Name"]
 
 
-class SingleStationObservation:
+class SingleStationObservation(dict[str, Any]):
     """Class to get data from observation."""
 
     def __init__(self, raw_data: Observation) -> None:

@@ -9,6 +9,7 @@ import probatio
 
 from homeassistant import config_entries
 from homeassistant.config_entries import ConfigFlowResult
+from homeassistant.const import CONF_ID
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
@@ -26,7 +27,7 @@ _LOGGER = logging.getLogger(__name__)
 STEP_USER_DATA_SCHEMA = (
     probatio.Schema(
         {
-            probatio.Required("id"): str,
+            probatio.Required(CONF_ID): str,
         }
     ),
 )
@@ -53,9 +54,9 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str,
     Data has the keys from STEP_USER_DATA_SCHEMA with values provided by the user.
     """
 
-    hub = ViVaHub(data["id"])
+    hub = ViVaHub(data[CONF_ID])
 
-    if not await hub.authenticate(data["id"]):
+    if not await hub.authenticate(data[CONF_ID]):
         raise InvalidAuth
 
     # If you cannot connect:
@@ -87,7 +88,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 step_id="user",
                 data_schema=probatio.Schema(
                     {
-                        probatio.Required("id"): SelectSelector(
+                        probatio.Required(CONF_ID): SelectSelector(
                             SelectSelectorConfig(options=station_list)
                         ),
                     }
@@ -96,7 +97,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             )
 
         errors = {}
-        await self.async_set_unique_id(user_input["id"])
+        await self.async_set_unique_id(user_input[CONF_ID])
         self._abort_if_unique_id_configured()
 
         try:
@@ -111,7 +112,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             errors["base"] = "unknown"
         else:
             station = next(
-                (item for item in station_list if item["value"] == user_input["id"]),
+                (item for item in station_list if item["value"] == user_input[CONF_ID]),
                 None,
             )
             title = station["label"] if station is not None else ""
@@ -121,7 +122,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             step_id="user",
             data_schema=probatio.Schema(
                 {
-                    probatio.Required("id"): SelectSelector(
+                    probatio.Required(CONF_ID): SelectSelector(
                         SelectSelectorConfig(options=station_list)
                     ),
                 }
