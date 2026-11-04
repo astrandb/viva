@@ -799,6 +799,64 @@
     'state': '3.9',
   })
 # ---
+# name: test_sensor_additional_stations[station_166.json][sensor.soderarm_smhi_humidity-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': dict({
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+    }),
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'sensor',
+    'entity_category': None,
+    'entity_id': 'sensor.soderarm_smhi_humidity',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': 'Humidity',
+    'options': dict({
+      'sensor': dict({
+        'suggested_display_precision': 0,
+      }),
+    }),
+    'original_device_class': <SensorDeviceClass.HUMIDITY: 'humidity'>,
+    'original_icon': None,
+    'original_name': 'Humidity',
+    'platform': 'viva',
+    'previous_unique_id': None,
+    'suggested_object_id': None,
+    'supported_features': 0,
+    'translation_key': None,
+    'unique_id': '166-luftfuktighet',
+    'unit_of_measurement': <UnitOfRatio.PERCENTAGE: '%'>,
+  })
+# ---
+# name: test_sensor_additional_stations[station_166.json][sensor.soderarm_smhi_humidity-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'humidity',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Söderarm (SMHI) Humidity',
+      <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
+      <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: <UnitOfRatio.PERCENTAGE: '%'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.soderarm_smhi_humidity',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '90.7',
+  })
+# ---
 # name: test_sensor_additional_stations[station_166.json][sensor.soderarm_smhi_temperature-entry]
   EntityRegistryEntrySnapshot({
     'aliases': list([
@@ -1085,7 +1143,7 @@
     'state': '6.1',
   })
 # ---
-# name: test_sensor_additional_stations[station_88.json][sensor.tan_sikt-entry]
+# name: test_sensor_additional_stations[station_88.json][sensor.tan_visibility-entry]
   EntityRegistryEntrySnapshot({
     'aliases': list([
       None,
@@ -1099,7 +1157,7 @@
     'disabled_by': None,
     'domain': 'sensor',
     'entity_category': None,
-    'entity_id': 'sensor.tan_sikt',
+    'entity_id': 'sensor.tan_visibility',
     'has_entity_name': True,
     'hidden_by': None,
     'icon': None,
@@ -1107,7 +1165,7 @@
     'labels': set({
     }),
     'name': None,
-    'object_id_base': 'Sikt',
+    'object_id_base': 'Visibility',
     'options': dict({
       'sensor': dict({
         'suggested_display_precision': 2,
@@ -1115,26 +1173,26 @@
     }),
     'original_device_class': <SensorDeviceClass.DISTANCE: 'distance'>,
     'original_icon': 'mdi:binoculars',
-    'original_name': 'Sikt',
+    'original_name': 'Visibility',
     'platform': 'viva',
     'previous_unique_id': None,
     'suggested_object_id': None,
     'supported_features': 0,
-    'translation_key': None,
+    'translation_key': 'visibility',
     'unique_id': '88-Sikt',
     'unit_of_measurement': 'm',
   })
 # ---
-# name: test_sensor_additional_stations[station_88.json][sensor.tan_sikt-state]
+# name: test_sensor_additional_stations[station_88.json][sensor.tan_visibility-state]
   StateSnapshot({
     'attributes': ReadOnlyDict({
       <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'distance',
-      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Tån Sikt',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Tån Visibility',
       <EntityStateAttribute.ICON: 'icon'>: 'mdi:binoculars',
       <EntityStateAttribute.UNIT_OF_MEASUREMENT: 'unit_of_measurement'>: 'm',
     }),
     'context': <ANY>,
-    'entity_id': 'sensor.tan_sikt',
+    'entity_id': 'sensor.tan_visibility',
     'last_changed': <ANY>,
     'last_reported': <ANY>,
     'last_updated': <ANY>,

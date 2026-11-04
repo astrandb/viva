@@ -7,7 +7,7 @@ from pytest_homeassistant_custom_component.common import (
     MockConfigEntry,
     snapshot_platform,
 )
-from syrupy import SnapshotAssertion
+from syrupy.assertion import SnapshotAssertion
 
 from custom_components.viva.const import DOMAIN
 from homeassistant.const import Platform
