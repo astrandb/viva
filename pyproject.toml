@@ -1,5 +1,5 @@
 [tool.bumpver]
-current_version = "2026.10.1"
+current_version = "2026.11.0"
 version_pattern = "YYYY.MM.PATCH[PYTAGNUM]"
 commit = false
 
