@@ -33,6 +33,9 @@
           }
         }
       },
+      "sealevel_rh2000": {
+        "name": "Sealevel RH2000"
+      },
       "wind_direction": {
         "name": "Wind direction"
       },

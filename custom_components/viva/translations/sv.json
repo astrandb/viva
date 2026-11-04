@@ -33,6 +33,9 @@
           }
         }
       },
+      "sealevel_rh2000": {
+        "name": "Vattenstånd RH2000"
+      },
       "wind_direction": {
         "name": "Vindriktning"
       },
