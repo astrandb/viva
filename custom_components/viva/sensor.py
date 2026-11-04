@@ -165,6 +165,7 @@ SIGHT_SENSOR = ViVaSensorDescription(
     icon="mdi:binoculars",
     translation_key="visibility",
     native_unit_of_measurement="m",
+    suggested_display_precision=0,
 )
 
 
@@ -284,6 +285,26 @@ class ViVaSensor(CoordinatorEntity[VivaCoordinator], SensorEntity):
             return retstr.replace(">", "")
 
         return retstr
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any] | None:
+        """Return the extra state attributes of the sensor."""
+
+        if self.entity_description.type == SENSOR_TYPE_LEVEL:
+            return {
+                "reference": self.coordinator.data.station_data["Samples"][
+                    self.sensor_id
+                ].get(
+                    "WaterLevelReference",
+                ),
+                "offset": self.coordinator.data.station_data["Samples"][
+                    self.sensor_id
+                ].get(
+                    "WaterLevelOffset",
+                ),
+            }
+
+        return None
 
     @property
     def available(self) -> bool:
