@@ -23,7 +23,18 @@
   "entity": {
     "sensor": {
       "sealevel": {
-        "name": "Sealevel"
+        "name": "Sealevel",
+        "state_attributes": {
+          "reference": {
+            "name": "Reference"
+          },
+          "offset": {
+            "name": "Offset"
+          }
+        }
+      },
+      "sealevel_rh2000": {
+        "name": "Sealevel RH2000"
       },
       "wind_direction": {
         "name": "Wind direction"

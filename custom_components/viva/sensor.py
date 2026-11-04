@@ -97,6 +97,17 @@ LEVEL_SENSOR = ViVaSensorDescription(
     state_class=SensorStateClass.MEASUREMENT,
 )
 
+LEVEL_SENSOR_RH2000 = ViVaSensorDescription(
+    key="Vattenstånd",
+    type=SENSOR_TYPE_LEVEL,
+    device_class=SensorDeviceClass.DISTANCE,
+    translation_key="sealevel_rh2000",
+    icon="mdi:ferry",
+    native_unit_of_measurement=UnitOfLength.CENTIMETERS,
+    state_class=SensorStateClass.MEASUREMENT,
+    entity_registry_enabled_default=False,
+)
+
 AVG_WIND_DIRECTION_SENSOR = ViVaSensorDescription(
     key="Vindriktning",
     type=SENSOR_TYPE_WIND_DIRECTION,
@@ -165,6 +176,7 @@ SIGHT_SENSOR = ViVaSensorDescription(
     icon="mdi:binoculars",
     translation_key="visibility",
     native_unit_of_measurement="m",
+    suggested_display_precision=0,
 )
 
 
@@ -181,6 +193,9 @@ async def async_setup_entry(
         obs2 = coordinator.data.station_data["Samples"][obs]
         if obs2["Type"] == SENSOR_TYPE_LEVEL:
             entities.append(ViVaSensor(coordinator, LEVEL_SENSOR, obs))
+            entities.append(
+                ViVaSensorSealevelRH2000(coordinator, LEVEL_SENSOR_RH2000, obs)
+            )
         elif obs2["Type"] == SENSOR_TYPE_WIND and obs2["Name"] == "Medelvind":
             entities.append(ViVaSensor(coordinator, AVG_WIND_SENSOR, obs))
             entities.append(ViVaSensor(coordinator, AVG_WIND_DIRECTION_SENSOR, obs))
@@ -286,6 +301,26 @@ class ViVaSensor(CoordinatorEntity[VivaCoordinator], SensorEntity):
         return retstr
 
     @property
+    def extra_state_attributes(self) -> dict[str, Any] | None:
+        """Return the extra state attributes of the sensor."""
+
+        if self.entity_description.type == SENSOR_TYPE_LEVEL:
+            return {
+                "reference": self.coordinator.data.station_data["Samples"][
+                    self.sensor_id
+                ].get(
+                    "WaterLevelReference",
+                ),
+                "offset": self.coordinator.data.station_data["Samples"][
+                    self.sensor_id
+                ].get(
+                    "WaterLevelOffset",
+                ),
+            }
+
+        return None
+
+    @property
     def available(self) -> bool:
         """Return the availability of the entity."""
 
@@ -294,3 +329,49 @@ class ViVaSensor(CoordinatorEntity[VivaCoordinator], SensorEntity):
             and "Samples" in self.coordinator.data.station_data
             and self.sensor_id in self.coordinator.data.station_data["Samples"]
         )
+
+
+class ViVaSensorSealevelRH2000(ViVaSensor):
+    """Representation of a Sealevel sensor for reference level RH2000."""
+
+    def __init__(
+        self,
+        coordinator: VivaCoordinator,
+        description: ViVaSensorDescription,
+        sensor_id: str,
+    ):
+        """Initialize the sensor."""
+        super().__init__(coordinator, description, sensor_id)
+        self._attr_unique_id = (
+            f"{self.coordinator.data.station_data['ID']}-"
+            f"{self.entity_description.key}-RH2000"
+        )
+
+    @property
+    def native_value(self) -> float | str | None:
+        """Return the state of the sensor."""
+
+        level = self.coordinator.data.station_data["Samples"][self.sensor_id].get(
+            "Value"
+        )
+        if level == "-":
+            return None
+
+        if (
+            self.coordinator.data.station_data["Samples"][self.sensor_id].get(
+                "WaterLevelReference"
+            )
+            == "MVY"
+        ):
+            level = float(level) + float(
+                self.coordinator.data.station_data["Samples"][self.sensor_id].get(
+                    "WaterLevelOffset"
+                    if self.coordinator.data.station_data["Samples"][
+                        self.sensor_id
+                    ].get("WaterLevelOffset")
+                    is not None
+                    else 0
+                )
+            )
+
+        return float(level) if level is not None else None
