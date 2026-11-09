@@ -226,6 +226,16 @@ async def async_setup_entry(
         _LOGGER.debug(
             "Setting up sensor %s on station %s", obs2["Type"], obs2["StationID"]
         )
+
+    # Some stations report several samples of the same kind, e.g. water temperature
+    # at 3 m and at the bottom. The first one keeps the original unique id, so existing
+    # entities are not affected; the others get their own unique id and name.
+    seen_unique_ids: set[str] = set()
+    for entity in entities:
+        if entity.unique_id in seen_unique_ids:
+            entity.set_additional_sample()
+        seen_unique_ids.add(entity.unique_id)
+
     async_add_entities(entities)
 
 
@@ -257,6 +267,15 @@ class ViVaSensor(CoordinatorEntity[VivaCoordinator], SensorEntity):
             configuration_url="https://viva.sjofartsverket.se",
             entry_type=DeviceEntryType.SERVICE,
         )
+
+    def set_additional_sample(self) -> None:
+        """Make this entity unique when the station has more samples of this kind.
+
+        The sample name from the station (e.g. "Vattentemp Botten") is used in the
+        unique id and as the entity name.
+        """
+        self._attr_unique_id = f"{self._attr_unique_id}-{self.sensor_id}"
+        self._attr_name = self.sensor_id
 
     @property
     def native_value(self) -> float | str | None:
